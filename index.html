@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Workforce Pro | Enterprise Management Suite</title>
+  <!-- FontAwesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Main Stylesheet -->
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+
+  <!-- Ambient Color Blooms (For Frosted Glass Vibrancy Refraction) -->
+  <div class="ambient-background">
+    <div class="bloom bloom-1"></div>
+    <div class="bloom bloom-2"></div>
+    <div class="bloom bloom-3"></div>
+  </div>
+
+  <!-- Top Navigation Bar (Enterprise Glass Aesthetic) -->
+  <header class="top-nav glass-panel">
+    <div class="brand-logo">
+      <div class="logo-icon">
+        <i class="fa-solid fa-layer-group"></i>
+      </div>
+      <span>Workforce <span style="background:linear-gradient(135deg, #00f2fe, #2997ff); -webkit-background-clip:text; -webkit-text-fill-color:transparent; font-weight:800;">Pro</span></span>
+    </div>
+
+    <nav class="nav-links">
+      <li class="nav-item active" data-tab="employees-tab">
+        <i class="fa-solid fa-users"></i>
+        <span>Employees</span>
+      </li>
+      <li class="nav-item" data-tab="departments-tab">
+        <i class="fa-solid fa-building-flag"></i>
+        <span>Departments</span>
+      </li>
+      <li class="nav-item" data-tab="reports-tab">
+        <i class="fa-solid fa-chart-pie"></i>
+        <span>Analytics</span>
+      </li>
+    </nav>
+
+    <div class="nav-right">
+      <div class="currency-tag" title="Monetary figures formatted in Indian INR (Lakhs & Crores)">
+        <div class="status-dot"></div>
+        <i class="fa-solid fa-indian-rupee-sign"></i>
+        <span>INR Currency</span>
+      </div>
+      <div class="user-profile">
+        <div class="user-avatar">PK</div>
+        <span style="font-size: 0.88rem; font-weight: 600; color: #fff;">Prince Kumar</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Main Content Container -->
+  <main class="main-container">
+
+    <!-- =========================================================
+         TAB 1: EMPLOYEES DASHBOARD (Active by default)
+         ========================================================= -->
+    <section id="employees-tab" class="tab-section active">
+      
+      <!-- Action Header -->
+      <div class="section-header">
+        <div class="header-title">
+          <h1>Workforce Overview <span style="font-size:0.85rem; color:var(--accent-cyan); background:rgba(0,242,254,0.12); padding:4px 12px; border-radius:var(--radius-pill); border:1px solid rgba(0,242,254,0.3); font-weight:600;">India Region</span></h1>
+          <p>Enterprise personnel management across Indian tech hubs with frosted glass precision.</p>
+        </div>
+
+        <div class="header-actions">
+          <!-- Clean Search Bar -->
+          <div class="search-container">
+            <input type="text" id="search-input" class="search-input" placeholder="Search employee, role, or email...">
+            <i class="fa-solid fa-magnifying-glass search-icon"></i>
+          </div>
+
+          <!-- View Toggle -->
+          <div class="view-toggle">
+            <button id="btn-grid-view" class="view-btn active" title="Grid View">
+              <i class="fa-solid fa-border-all"></i>
+            </button>
+            <button id="btn-table-view" class="view-btn" title="Table View">
+              <i class="fa-solid fa-list-ul"></i>
+            </button>
+          </div>
+
+          <!-- Add Employee Button -->
+          <button id="btn-open-add-modal" class="btn-primary">
+            <i class="fa-solid fa-user-plus"></i>
+            <span>Add Employee</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Clean Executive Metrics Bar (Tasteful Color Accent Pills) -->
+      <div class="metrics-bar">
+        <div class="metric-pill glass-card" style="border-top: 2px solid var(--accent-cyan);">
+          <div>
+            <div class="metric-label-small">Total Workforce</div>
+            <div id="cmd-total-staff" class="metric-val-large val-cyan">25 Active</div>
+          </div>
+          <div style="width:44px; height:44px; border-radius:12px; background:rgba(0,242,254,0.12); display:flex; align-items:center; justify-content:center; color:var(--accent-cyan); font-size:1.3rem;">
+            <i class="fa-solid fa-users"></i>
+          </div>
+        </div>
+
+        <div class="metric-pill glass-card" style="border-top: 2px solid var(--accent-emerald);">
+          <div>
+            <div class="metric-label-small">Annual Payroll Spend</div>
+            <div id="cmd-total-payroll" class="metric-val-large val-emerald">₹6.42 Cr</div>
+          </div>
+          <div style="width:44px; height:44px; border-radius:12px; background:rgba(16,185,129,0.12); display:flex; align-items:center; justify-content:center; color:var(--accent-emerald); font-size:1.3rem;">
+            <i class="fa-solid fa-vault"></i>
+          </div>
+        </div>
+
+        <div class="metric-pill glass-card" style="border-top: 2px solid #818cf8;">
+          <div>
+            <div class="metric-label-small">Average Compensation</div>
+            <div id="cmd-avg-salary" class="metric-val-large val-indigo">₹25.68 LPA</div>
+          </div>
+          <div style="width:44px; height:44px; border-radius:12px; background:rgba(129,140,248,0.12); display:flex; align-items:center; justify-content:center; color:#818cf8; font-size:1.3rem;">
+            <i class="fa-solid fa-money-check-dollar"></i>
+          </div>
+        </div>
+
+        <div class="metric-pill glass-card" style="border-top: 2px solid var(--accent-amber);">
+          <div>
+            <div class="metric-label-small">Average Performance</div>
+            <div id="cmd-avg-rating" class="metric-val-large val-amber">4.72 / 5.0</div>
+          </div>
+          <div style="width:44px; height:44px; border-radius:12px; background:rgba(251,191,36,0.12); display:flex; align-items:center; justify-content:center; color:var(--accent-amber); font-size:1.3rem;">
+            <i class="fa-solid fa-star"></i>
+          </div>
+        </div>
+      </div>
+
+      <!-- Interactive Regional Tech Hubs (Executive Toggle Aesthetic) -->
+      <div style="margin-bottom: 26px;">
+        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px;">
+          <span style="font-size:0.84rem; font-weight:700; text-transform:uppercase; color:var(--text-secondary); letter-spacing:0.04em;">
+            <i class="fa-solid fa-map-pin" style="margin-right:8px; color:var(--accent-cyan);"></i> India Tech Hubs (Click to filter campus)
+          </span>
+          <span id="active-hub-label" style="font-size:0.82rem; color:var(--accent-cyan); font-weight:600; background:rgba(0,242,254,0.1); padding:4px 12px; border-radius:var(--radius-pill); border:1px solid rgba(0,242,254,0.3);">Showing All Offices</span>
+        </div>
+
+        <div class="hubs-grid">
+          <!-- Hub 1: All Hubs -->
+          <div class="hub-card active-hub" data-location="ALL">
+            <div class="hub-header">
+              <div class="hub-title"><i class="fa-solid fa-globe" style="color:var(--accent-cyan);"></i> All India Hubs</div>
+              <span class="hub-badge">25 Staff</span>
+            </div>
+            <p style="font-size:0.82rem; color:var(--text-secondary);">Pan-India Talent Ecosystem</p>
+          </div>
+
+          <!-- Hub 2: Bengaluru HQ -->
+          <div class="hub-card" data-location="Bengaluru HQ" style="border-top-color:#3b82f6;">
+            <div class="hub-header">
+              <div class="hub-title"><i class="fa-solid fa-building" style="color:#60a5fa;"></i> Bengaluru HQ</div>
+              <span class="hub-badge" style="background:rgba(59,130,246,0.15); color:#60a5fa; border-color:rgba(59,130,246,0.3);">8 Staff</span>
+            </div>
+            <div class="hub-stats">
+              <div>
+                <div style="font-size:0.7rem; color:var(--text-secondary); font-weight:600;">DOMAINS</div>
+                <div style="font-size:0.84rem; font-weight:700; color:#fff;">AI & Core Eng</div>
+              </div>
+              <div>
+                <div style="font-size:0.7rem; color:var(--text-secondary); font-weight:600;">AVG SALARY</div>
+                <div style="font-size:0.84rem; font-weight:700; color:var(--accent-emerald);">₹31.5 LPA</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hub 3: Hyderabad -->
+          <div class="hub-card" data-location="Hyderabad Tech Park" style="border-top-color:#8b5cf6;">
+            <div class="hub-header">
+              <div class="hub-title"><i class="fa-solid fa-network-wired" style="color:#a78bfa;"></i> Hyderabad Park</div>
+              <span class="hub-badge" style="background:rgba(139,92,246,0.15); color:#a78bfa; border-color:rgba(139,92,246,0.3);">5 Staff</span>
+            </div>
+            <div class="hub-stats">
+              <div>
+                <div style="font-size:0.7rem; color:var(--text-secondary); font-weight:600;">DOMAINS</div>
+                <div style="font-size:0.84rem; font-weight:700; color:#fff;">Cloud Security</div>
+              </div>
+              <div>
+                <div style="font-size:0.7rem; color:var(--text-secondary); font-weight:600;">AVG SALARY</div>
+                <div style="font-size:0.84rem; font-weight:700; color:var(--accent-emerald);">₹26.4 LPA</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hub 4: Gurugram -->
+          <div class="hub-card" data-location="Gurugram Cyber City" style="border-top-color:#f43f5e;">
+            <div class="hub-header">
+              <div class="hub-title"><i class="fa-solid fa-city" style="color:#fb7185;"></i> Gurugram Hub</div>
+              <span class="hub-badge" style="background:rgba(244,63,94,0.15); color:#fb7185; border-color:rgba(244,63,94,0.3);">5 Staff</span>
+            </div>
+            <div class="hub-stats">
+              <div>
+                <div style="font-size:0.7rem; color:var(--text-secondary); font-weight:600;">DOMAINS</div>
+                <div style="font-size:0.84rem; font-weight:700; color:#fff;">Brand & Growth</div>
+              </div>
+              <div>
+                <div style="font-size:0.7rem; color:var(--text-secondary); font-weight:600;">AVG SALARY</div>
+                <div style="font-size:0.84rem; font-weight:700; color:var(--accent-emerald);">₹24.8 LPA</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Hub 5: Pune & Mumbai -->
+          <div class="hub-card" data-location="Pune Innovation Center" style="border-top-color:#f59e0b;">
+            <div class="hub-header">
+              <div class="hub-title"><i class="fa-solid fa-wand-magic-sparkles" style="color:#fbbf24;"></i> Pune Center</div>
+              <span class="hub-badge" style="background:rgba(245,158,11,0.15); color:#fbbf24; border-color:rgba(245,158,11,0.3);">4 Staff</span>
+            </div>
+            <div class="hub-stats">
+              <div>
+                <div style="font-size:0.7rem; color:var(--text-secondary); font-weight:600;">DOMAINS</div>
+                <div style="font-size:0.84rem; font-weight:700; color:#fff;">UX & Product</div>
+              </div>
+              <div>
+                <div style="font-size:0.7rem; color:var(--text-secondary); font-weight:600;">AVG SALARY</div>
+                <div style="font-size:0.84rem; font-weight:700; color:var(--accent-emerald);">₹21.2 LPA</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Simple, Clean Filter Bar -->
+      <div class="filter-bar glass-panel">
+        <div class="filter-left">
+          <div class="filter-item">
+            <label>Department</label>
+            <select id="filter-dept" class="custom-select">
+              <option value="ALL">All Departments</option>
+              <option value="Infrastructure & Core Eng">Infrastructure & Core Eng</option>
+              <option value="Artificial Intelligence R&D">Artificial Intelligence R&D</option>
+              <option value="Product Experience & UX">Product Experience & UX</option>
+              <option value="Global Brand Marketing">Global Brand Marketing</option>
+              <option value="Executive Leadership">Executive Leadership</option>
+            </select>
+          </div>
+
+          <div class="filter-item">
+            <label>Max Salary (₹ LPA)</label>
+            <select id="filter-salary" class="custom-select">
+              <option value="10000000">No Limit (₹1+ Crore)</option>
+              <option value="4000000">Up to ₹40 LPA</option>
+              <option value="2500000">Up to ₹25 LPA</option>
+              <option value="1800000">Up to ₹18 LPA</option>
+            </select>
+          </div>
+        </div>
+
+        <div class="filter-right">
+          <div class="filter-item">
+            <label>Sort By</label>
+            <select id="sort-by" class="custom-select">
+              <option value="name">Name (Alphabetical)</option>
+              <option value="salary">Salary (Highest to Lowest)</option>
+              <option value="rating">Performance Rating</option>
+              <option value="joinDate">Tenure (Seniority)</option>
+            </select>
+          </div>
+
+          <button id="btn-reset-filters" class="btn-secondary" style="margin-top: 18px;">
+            <i class="fa-solid fa-rotate-left"></i>
+            <span>Reset Filters</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Employees Grid View -->
+      <div id="employees-grid-container" class="employees-grid">
+        <!-- Cards injected dynamically via app.js -->
+      </div>
+
+      <!-- Employees Table View (Hidden by default) -->
+      <div id="employees-table-container" class="employees-table-container glass-panel" style="display: none;">
+        <table class="employees-table">
+          <thead>
+            <tr>
+              <th>Employee Profile</th>
+              <th>Office Location</th>
+              <th>Department</th>
+              <th>Role</th>
+              <th>Annual Salary (INR)</th>
+              <th>Rating</th>
+              <th style="text-align: right;">Actions</th>
+            </tr>
+          </thead>
+          <tbody id="employees-table-body">
+            <!-- Rows injected dynamically via app.js -->
+          </tbody>
+        </table>
+      </div>
+
+      <!-- Empty State -->
+      <div id="empty-state-container" class="glass-panel" style="display:none; text-align:center; padding: 60px 20px; flex-direction:column; align-items:center; gap:14px;">
+        <i class="fa-solid fa-users-slash" style="font-size:3.2rem; color:var(--text-secondary);"></i>
+        <h3>No Employees Found</h3>
+        <p style="color:var(--text-secondary); max-width:380px;">No personnel records match your selected campus or filter criteria.</p>
+        <button id="btn-empty-reset" class="btn-primary" style="margin-top:8px;">Reset All Filters</button>
+      </div>
+
+      <!-- Pagination -->
+      <div class="pagination-container glass-panel">
+        <div style="font-size:0.88rem; color:var(--text-secondary);">
+          Showing <span id="page-start" style="color:#fff; font-weight:600;">1</span>–<span id="page-end" style="color:#fff; font-weight:600;">9</span> of <span id="total-emps" style="color:#fff; font-weight:600;">25</span> employees
+        </div>
+        <div style="display:flex; gap:6px;" id="page-buttons-wrapper">
+          <button id="btn-prev" class="page-btn"><i class="fa-solid fa-chevron-left"></i></button>
+          <div id="page-numbers" style="display:flex; gap:6px;"></div>
+          <button id="btn-next" class="page-btn"><i class="fa-solid fa-chevron-right"></i></button>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- =========================================================
+         TAB 2: DEPARTMENTS & TECH HUBS DASHBOARD
+         ========================================================= -->
+    <section id="departments-tab" class="tab-section">
+      <div class="section-header">
+        <div class="header-title">
+          <h1>Departments & Tech Hubs</h1>
+          <p>Workforce headcount distribution, salary budgets in Lakhs/Crores, and regional leadership.</p>
+        </div>
+      </div>
+
+      <div id="departments-grid-container" class="depts-grid">
+        <!-- Department cards injected dynamically via app.js -->
+      </div>
+    </section>
+
+    <!-- =========================================================
+         TAB 3: ANALYTICS & PAYROLL DASHBOARD
+         ========================================================= -->
+    <section id="reports-tab" class="tab-section">
+      <div class="section-header">
+        <div class="header-title">
+          <h1>Analytics & Payroll Expenditure</h1>
+          <p>Annual financial allocation across departments, average LPA metrics, and staff distribution.</p>
+        </div>
+      </div>
+
+      <!-- KPI Overview Cards -->
+      <div class="metrics-bar" style="margin-bottom: 30px;">
+        <div class="metric-pill glass-card" style="border-top: 2px solid var(--accent-cyan);">
+          <div>
+            <div class="metric-label-small">Total Annual Payroll</div>
+            <div id="kpi-payroll" class="metric-val-large val-cyan">₹6.42 Cr</div>
+          </div>
+          <div style="width:44px; height:44px; border-radius:12px; background:rgba(0,242,254,0.12); display:flex; align-items:center; justify-content:center; color:var(--accent-cyan); font-size:1.3rem;"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+        </div>
+
+        <div class="metric-pill glass-card" style="border-top: 2px solid #818cf8;">
+          <div>
+            <div class="metric-label-small">Active Workforce</div>
+            <div id="kpi-headcount" class="metric-val-large val-indigo">25 Staff</div>
+          </div>
+          <div style="width:44px; height:44px; border-radius:12px; background:rgba(129,140,248,0.12); display:flex; align-items:center; justify-content:center; color:#818cf8; font-size:1.3rem;"><i class="fa-solid fa-users"></i></div>
+        </div>
+
+        <div class="metric-pill glass-card" style="border-top: 2px solid var(--accent-emerald);">
+          <div>
+            <div class="metric-label-small">Average Salary</div>
+            <div id="kpi-avg-salary" class="metric-val-large val-emerald">₹25.68 LPA</div>
+          </div>
+          <div style="width:44px; height:44px; border-radius:12px; background:rgba(16,185,129,0.12); display:flex; align-items:center; justify-content:center; color:var(--accent-emerald); font-size:1.3rem;"><i class="fa-solid fa-scale-balanced"></i></div>
+        </div>
+      </div>
+
+      <!-- Charts -->
+      <div style="display:grid; grid-template-columns: 2fr 1.2fr; gap: 24px; margin-bottom: 40px;">
+        <div class="glass-panel" style="padding:26px;">
+          <h3 style="font-size:1.25rem; margin-bottom:4px;">Annual Salary Spend by Department (₹ Lakhs)</h3>
+          <p style="font-size:0.82rem; color:var(--text-secondary); margin-bottom:22px;">Total yearly compensation distribution</p>
+          <div class="css-bar-chart" id="department-bar-chart"></div>
+        </div>
+
+        <div class="glass-panel" style="padding:26px;">
+          <h3 style="font-size:1.25rem; margin-bottom:4px;">Office Location Density</h3>
+          <p style="font-size:0.82rem; color:var(--text-secondary); margin-bottom:22px;">Staff distribution across tech campuses</p>
+          <div id="headcount-share-list" style="display:flex; flex-direction:column; gap:16px;"></div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <!-- =========================================================
+       MODAL 1: ADD / EDIT EMPLOYEE MODAL
+       ========================================================= -->
+  <div id="employee-modal" class="modal-overlay">
+    <div class="modal-box">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:22px; padding-bottom:14px; border-bottom:1px solid var(--glass-border);">
+        <h2 id="modal-title" style="font-size:1.35rem; color:#fff;"><i class="fa-solid fa-user-plus" style="margin-right:10px; color:var(--accent-cyan);"></i> Add New Employee</h2>
+        <button id="btn-close-modal" class="btn-icon"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+
+      <form id="employee-form" onsubmit="return false;">
+        <input type="hidden" id="emp-id">
+        <div class="form-grid">
+          
+          <div class="form-group full-width">
+            <label>Full Name *</label>
+            <input type="text" id="emp-name" class="form-input" placeholder="e.g. Rahul Sharma" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label>Corporate Email *</label>
+            <input type="email" id="emp-email" class="form-input" placeholder="e.g. rahul.sharma@workforcepro.in" required>
+          </div>
+
+          <div class="form-group">
+            <label>Office Campus / Tech Hub *</label>
+            <select id="emp-location" class="custom-select form-input" required>
+              <option value="Bengaluru HQ">📍 Bengaluru HQ</option>
+              <option value="Hyderabad Tech Park">📍 Hyderabad Tech Park</option>
+              <option value="Gurugram Cyber City">📍 Gurugram Cyber City</option>
+              <option value="Pune Innovation Center">📍 Pune Innovation Center</option>
+              <option value="Mumbai FinTech Hub">📍 Mumbai FinTech Hub</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Department *</label>
+            <select id="emp-dept" class="custom-select form-input" required>
+              <option value="Infrastructure & Core Eng">Infrastructure & Core Eng</option>
+              <option value="Artificial Intelligence R&D">Artificial Intelligence R&D</option>
+              <option value="Product Experience & UX">Product Experience & UX</option>
+              <option value="Global Brand Marketing">Global Brand Marketing</option>
+              <option value="Executive Leadership">Executive Leadership</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label>Designation / Role *</label>
+            <input type="text" id="emp-role" class="form-input" placeholder="e.g. Principal Lead Engineer" required>
+          </div>
+
+          <div class="form-group">
+            <label>Annual Salary (₹ INR in Annum) *</label>
+            <input type="number" id="emp-salary" class="form-input" placeholder="e.g. 2500000 (for ₹25 LPA)" min="300000" max="100000000" step="50000" required>
+          </div>
+
+          <div class="form-group full-width">
+            <label>Performance Rating (1.0 – 5.0) *</label>
+            <input type="number" id="emp-rating" class="form-input" placeholder="e.g. 4.8" min="1.0" max="5.0" step="0.1" value="4.6" required>
+          </div>
+
+        </div>
+
+        <div style="display:flex; justify-content:flex-end; gap:12px; margin-top:28px; padding-top:18px; border-top:1px solid var(--glass-border);">
+          <button type="button" id="btn-cancel-modal" class="btn-secondary">Cancel</button>
+          <button type="submit" id="btn-save-employee" class="btn-primary">Save Employee</button>
+        </div>
+      </form>
+    </div>
+  </div>
+
+  <!-- =========================================================
+       MODAL 2: EMPLOYEE DETAILS DOSSIER
+       ========================================================= -->
+  <div id="details-modal" class="modal-overlay">
+    <div class="modal-box" style="max-width: 500px;">
+      <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:20px; padding-bottom:12px; border-bottom:1px solid var(--glass-border);">
+        <h2 style="font-size:1.3rem; color:#fff;"><i class="fa-solid fa-id-card" style="margin-right:10px; color:var(--accent-violet);"></i> Employee Profile</h2>
+        <button id="btn-close-details" class="btn-icon"><i class="fa-solid fa-xmark"></i></button>
+      </div>
+      <div id="details-content"></div>
+    </div>
+  </div>
+
+  <!-- Main Application Logic -->
+  <script src="app.js"></script>
+</body>
+</html>
