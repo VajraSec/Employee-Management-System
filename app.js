@@ -1,18 +1,19 @@
 /**
  * ============================================================================
- * WORKFORCE PRO — ENTERPRISE MANAGEMENT SUITE
- * True Frosted Glass Blurish Effect with Tasteful Executive Color Accents
+ * WORKFORCE PRO — THE GUILD REGISTRY
+ * Medieval-Themed Enterprise Management Suite
+ * Features: LocalStorage, Toast Notifications, CSV Export, Day/Night Toggle
  * ============================================================================
  */
 
 // ==========================================
-// 1. WORKFORCE DATABASE (WITH INDIAN CURRENCY INR & TECH HUBS)
+// 1. GUILD MEMBERS DATABASE (Indian Currency INR & Strongholds)
 // ==========================================
-const initialEmployees = [
+const defaultMembers = [
   { id: 101, name: 'Dr. Aarav Sharma', email: 'aarav.sharma@workforcepro.in', location: 'Bengaluru HQ', department: 'Artificial Intelligence R&D', role: 'Chief AI Scientist & Director', salary: 4500000, rating: 4.9, joinDate: '2020-03-15', avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&auto=format&fit=crop&q=80', skills: ['LLM Architecture', 'Neural Networks', 'Python', 'AI Strategy'] },
   { id: 102, name: 'Priya Nair', email: 'priya.nair@workforcepro.in', location: 'Bengaluru HQ', department: 'Infrastructure & Core Eng', role: 'VP of Cloud Infrastructure', salary: 3800000, rating: 4.8, joinDate: '2019-07-22', avatar: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=150&auto=format&fit=crop&q=80', skills: ['Kubernetes', 'Distributed Systems', 'AWS Mesh', 'Go'] },
   { id: 103, name: 'Rohan Verma', email: 'rohan.verma@workforcepro.in', location: 'Hyderabad Tech Park', department: 'Infrastructure & Core Eng', role: 'Principal Security Lead', salary: 3200000, rating: 4.7, joinDate: '2020-09-04', avatar: 'https://images.unsplash.com/photo-1534528741775-53994a69daeb?w=150&auto=format&fit=crop&q=80', skills: ['Cybersecurity', 'Rust', 'Network Mesh', 'Zero-Trust'] },
-  { id: 104, name: 'Ananya Patel', email: 'ananya.patel@workforcepro.in', location: 'Pune Innovation Center', department: 'Product Experience & UX', role: 'Principal Design Architect', salary: 2600000, rating: 4.9, joinDate: '2021-01-11', avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80', skills: ['Enterprise Glassmorphism', 'UI/UX Design', 'Design Systems', 'Figma'] },
+  { id: 104, name: 'Ananya Patel', email: 'ananya.patel@workforcepro.in', location: 'Pune Innovation Center', department: 'Product Experience & UX', role: 'Principal Design Architect', salary: 2600000, rating: 4.9, joinDate: '2021-01-11', avatar: 'https://images.unsplash.com/photo-1580489944761-15a19d654956?w=150&auto=format&fit=crop&q=80', skills: ['Design Systems', 'UI/UX Design', 'Figma', 'Motion Design'] },
   { id: 105, name: 'Vikramaditya Rao', email: 'vikram.rao@workforcepro.in', location: 'Gurugram Cyber City', department: 'Executive Leadership', role: 'Chief Financial Officer (CFO)', salary: 4800000, rating: 5.0, joinDate: '2018-02-12', avatar: 'https://images.unsplash.com/photo-1500648767791-00dcc994a43e?w=150&auto=format&fit=crop&q=80', skills: ['Capital Allocation', 'INR Treasury', 'Corporate Governance', 'M&A'] },
   { id: 106, name: 'Sneha Kulkarni', email: 'sneha.kulkarni@workforcepro.in', location: 'Bengaluru HQ', department: 'Artificial Intelligence R&D', role: 'Lead Autonomous Systems Eng', salary: 3400000, rating: 4.8, joinDate: '2021-11-08', avatar: 'https://images.unsplash.com/photo-1567532939604-b6b5b0db2604?w=150&auto=format&fit=crop&q=80', skills: ['Multi-Agent AI', 'Reinforcement Learning', 'PyTorch', 'C++'] },
   { id: 107, name: 'Karthik Iyer', email: 'karthik.iyer@workforcepro.in', location: 'Hyderabad Tech Park', department: 'Infrastructure & Core Eng', role: 'Senior Database Engine Lead', salary: 2800000, rating: 4.6, joinDate: '2021-05-14', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80', skills: ['BigQuery', 'Postgres Internals', 'Query Profiling', 'Spanner'] },
@@ -32,15 +33,39 @@ const initialEmployees = [
   { id: 121, name: 'Yashwardhan Chauhan', email: 'yash.chauhan@workforcepro.in', location: 'Bengaluru HQ', department: 'Infrastructure & Core Eng', role: 'Chief Enterprise Cloud Architect', salary: 3900000, rating: 4.8, joinDate: '2018-11-15', avatar: 'https://images.unsplash.com/photo-1560250097-0b93528c311a?w=150&auto=format&fit=crop&q=80', skills: ['Multi-Cloud Mesh', 'High Availability', 'Enterprise Design', 'Scaling'] },
   { id: 122, name: 'Sonam Norbu', email: 'sonam.norbu@workforcepro.in', location: 'Hyderabad Tech Park', department: 'Infrastructure & Core Eng', role: 'Staff Database Architect', salary: 3100000, rating: 4.7, joinDate: '2021-07-28', avatar: 'https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80', skills: ['Spanner Mesh', 'Postgres', 'Replication', 'Distributed Consensus'] },
   { id: 123, name: 'Ritu Gupta', email: 'ritu.gupta@workforcepro.in', location: 'Gurugram Cyber City', department: 'Global Brand Marketing', role: 'Principal Brand Experience Architect', salary: 2400000, rating: 4.7, joinDate: '2023-01-09', avatar: 'https://images.unsplash.com/photo-1544005313-94ddf0286df2?w=150&auto=format&fit=crop&q=80', skills: ['Digital Experience', 'Brand Positioning', 'Content Strategy', 'UX'] },
-  { id: 124, name: 'Devendra Rathore', email: 'devendra.rathore@workforcepro.in', location: 'Pune Innovation Center', department: 'Product Experience & UX', role: 'Senior Accessibility (a11y) Architect', salary: 2300000, rating: 4.7, joinDate: '2022-11-21', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80', skills: ['WCAG AAA', 'Inclusive UI', 'Screen Readers', 'ARIA'] },
+  { id: 124, name: 'Devendra Rathore', email: 'devendra.rathore@workforcepro.in', location: 'Pune Innovation Center', department: 'Product Experience & UX', role: 'Senior Accessibility Architect', salary: 2300000, rating: 4.7, joinDate: '2022-11-21', avatar: 'https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=150&auto=format&fit=crop&q=80', skills: ['WCAG AAA', 'Inclusive UI', 'Screen Readers', 'ARIA'] },
   { id: 125, name: 'Samir Ghosh', email: 'samir.ghosh@workforcepro.in', location: 'Bengaluru HQ', department: 'Artificial Intelligence R&D', role: 'Senior Computer Vision Scientist', salary: 3300000, rating: 4.7, joinDate: '2021-06-15', avatar: 'https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?w=150&auto=format&fit=crop&q=80', skills: ['Computer Vision', 'OpenCV', 'PyTorch', 'Image Segmentation'] }
 ];
 
 // ==========================================
-// 2. GLOBAL STATE
+// 2. LOCAL STORAGE PERSISTENCE
+// ==========================================
+function loadFromStorage() {
+  try {
+    const saved = localStorage.getItem('workforcepro_members');
+    return saved ? JSON.parse(saved) : null;
+  } catch { return null; }
+}
+
+function saveToStorage() {
+  try {
+    localStorage.setItem('workforcepro_members', JSON.stringify(state.employees));
+  } catch { /* storage full or disabled */ }
+}
+
+function loadTheme() {
+  return localStorage.getItem('workforcepro_theme') || 'day';
+}
+
+function saveTheme(theme) {
+  localStorage.setItem('workforcepro_theme', theme);
+}
+
+// ==========================================
+// 3. GLOBAL STATE
 // ==========================================
 const state = {
-  employees: [...initialEmployees],
+  employees: loadFromStorage() || [...defaultMembers],
   currentTab: 'employees-tab',
   viewMode: 'grid',
   searchQuery: '',
@@ -50,22 +75,19 @@ const state = {
   sortBy: 'name',
   currentPage: 1,
   pageSize: 9,
-  editingEmpId: null
+  editingEmpId: null,
+  theme: loadTheme()
 };
 
 // ==========================================
-// 3. CURRENCY HELPER FUNCTIONS (INDIAN INR LAKHS & CRORES)
+// 4. CURRENCY HELPERS (₹ INR Lakhs & Crores)
 // ==========================================
 function formatINRLakhs(amount) {
-  const lakhs = (amount / 100000).toFixed(1);
-  return `₹${lakhs} LPA`;
+  return `₹${(amount / 100000).toFixed(1)} LPA`;
 }
 
 function formatINRCrores(amount) {
-  if (amount >= 10000000) {
-    const crores = (amount / 10000000).toFixed(2);
-    return `₹${crores} Cr INR`;
-  }
+  if (amount >= 10000000) return `₹${(amount / 10000000).toFixed(2)} Cr`;
   return formatINRLakhs(amount);
 }
 
@@ -74,64 +96,137 @@ function formatINRFull(amount) {
 }
 
 // ==========================================
-// 4. INITIALIZATION & EVENT LISTENER BINDINGS
+// 5. TOAST NOTIFICATION SYSTEM
+// ==========================================
+function showToast(message, type = 'info') {
+  const container = document.getElementById('toast-container');
+  const icons = {
+    success: 'fa-solid fa-check',
+    error: 'fa-solid fa-triangle-exclamation',
+    info: 'fa-solid fa-scroll'
+  };
+
+  const toast = document.createElement('div');
+  toast.className = `toast ${type}`;
+  toast.innerHTML = `
+    <div class="toast-icon"><i class="${icons[type] || icons.info}"></i></div>
+    <span>${message}</span>
+    <button class="toast-close" onclick="this.parentElement.remove()"><i class="fa-solid fa-xmark"></i></button>
+  `;
+
+  container.appendChild(toast);
+
+  // Auto-remove after animation
+  setTimeout(() => {
+    if (toast.parentElement) toast.remove();
+  }, 4000);
+}
+
+// ==========================================
+// 6. CSV EXPORT
+// ==========================================
+function exportToCSV() {
+  const headers = ['Name', 'Email', 'Stronghold', 'Guild Hall', 'Title', 'Annual Bounty (INR)', 'Honor Rating', 'Sworn Since'];
+  const rows = state.employees.map(e => [
+    e.name,
+    e.email,
+    e.location,
+    e.department,
+    e.role,
+    e.salary,
+    e.rating,
+    e.joinDate
+  ]);
+
+  let csv = headers.join(',') + '\n';
+  rows.forEach(row => {
+    csv += row.map(val => `"${val}"`).join(',') + '\n';
+  });
+
+  const blob = new Blob([csv], { type: 'text/csv;charset=utf-8;' });
+  const url = URL.createObjectURL(blob);
+  const link = document.createElement('a');
+  link.href = url;
+  link.download = 'guild_registry.csv';
+  link.click();
+  URL.revokeObjectURL(url);
+
+  showToast('The Guild Registry has been transcribed to parchment (CSV downloaded).', 'success');
+}
+
+// ==========================================
+// 7. DAY/NIGHT THEME TOGGLE
+// ==========================================
+function applyTheme(theme) {
+  document.documentElement.setAttribute('data-theme', theme);
+  const icon = document.querySelector('#theme-toggle i');
+  if (icon) {
+    icon.className = theme === 'night' ? 'fa-solid fa-moon' : 'fa-solid fa-sun';
+  }
+  state.theme = theme;
+  saveTheme(theme);
+}
+
+function toggleTheme() {
+  const newTheme = state.theme === 'day' ? 'night' : 'day';
+  applyTheme(newTheme);
+  showToast(newTheme === 'night' ? 'The torches dim — Night mode activated.' : 'Dawn breaks — Day mode restored.', 'info');
+}
+
+// ==========================================
+// 8. INITIALIZATION
 // ==========================================
 document.addEventListener('DOMContentLoaded', () => {
+  applyTheme(state.theme);
   initNavigation();
   initSearchAndFilters();
   initHubsFilter();
   initViewToggle();
   initPagination();
   initModals();
-  
+  initExport();
+  initHamburger();
   renderAll();
 });
 
 function initNavigation() {
-  const navItems = document.querySelectorAll('.nav-item');
-  navItems.forEach(item => {
+  document.querySelectorAll('.nav-item').forEach(item => {
     item.addEventListener('click', () => {
-      navItems.forEach(i => i.classList.remove('active'));
+      document.querySelectorAll('.nav-item').forEach(i => i.classList.remove('active'));
       item.classList.add('active');
-      
       const tabId = item.getAttribute('data-tab');
       state.currentTab = tabId;
-      
-      document.querySelectorAll('.tab-section').forEach(sec => {
-        sec.classList.remove('active');
-      });
+      document.querySelectorAll('.tab-section').forEach(s => s.classList.remove('active'));
       document.getElementById(tabId).classList.add('active');
-      
       if (tabId === 'departments-tab') renderDepartments();
       if (tabId === 'reports-tab') renderReports();
+      // Close mobile menu after selection
+      document.getElementById('nav-links').classList.remove('mobile-open');
+      document.getElementById('hamburger').classList.remove('active');
     });
   });
 }
 
 function initSearchAndFilters() {
-  const searchInput = document.getElementById('search-input');
-  searchInput.addEventListener('input', (e) => {
+  document.getElementById('search-input').addEventListener('input', (e) => {
     state.searchQuery = e.target.value.trim().toLowerCase();
     state.currentPage = 1;
     renderEmployees();
   });
 
-  const deptSelect = document.getElementById('filter-dept');
-  deptSelect.addEventListener('change', (e) => {
+  document.getElementById('filter-dept').addEventListener('change', (e) => {
     state.filterDept = e.target.value;
     state.currentPage = 1;
     renderEmployees();
   });
 
-  const salarySelect = document.getElementById('filter-salary');
-  salarySelect.addEventListener('change', (e) => {
+  document.getElementById('filter-salary').addEventListener('change', (e) => {
     state.filterMaxSalary = Number(e.target.value);
     state.currentPage = 1;
     renderEmployees();
   });
 
-  const sortBySelect = document.getElementById('sort-by');
-  sortBySelect.addEventListener('change', (e) => {
+  document.getElementById('sort-by').addEventListener('change', (e) => {
     state.sortBy = e.target.value;
     renderEmployees();
   });
@@ -141,19 +236,15 @@ function initSearchAndFilters() {
 }
 
 function initHubsFilter() {
-  const hubCards = document.querySelectorAll('.hub-card');
-  const activeLabel = document.getElementById('active-hub-label');
-
-  hubCards.forEach(card => {
+  document.querySelectorAll('.hub-card').forEach(card => {
     card.addEventListener('click', () => {
-      hubCards.forEach(c => c.classList.remove('active-hub'));
+      document.querySelectorAll('.hub-card').forEach(c => c.classList.remove('active-hub'));
       card.classList.add('active-hub');
-      
       const loc = card.getAttribute('data-location');
       state.filterLocation = loc;
       state.currentPage = 1;
-
-      activeLabel.innerHTML = loc === 'ALL' ? 'Showing All Offices' : `<i class="fa-solid fa-check" style="margin-right:6px; color:var(--accent-cyan);"></i> Filtered: ${loc}`;
+      const label = document.getElementById('active-hub-label');
+      label.textContent = loc === 'ALL' ? 'All Strongholds' : `Filtered: ${loc.split(' ')[0]}`;
       renderEmployees();
     });
   });
@@ -166,124 +257,121 @@ function resetFilters() {
   state.filterMaxSalary = 100000000;
   state.sortBy = 'name';
   state.currentPage = 1;
-
   document.getElementById('search-input').value = '';
   document.getElementById('filter-dept').value = 'ALL';
   document.getElementById('filter-salary').value = 10000000;
   document.getElementById('sort-by').value = 'name';
-  document.getElementById('active-hub-label').textContent = 'Showing All Offices';
-
-  document.querySelectorAll('.hub-card').forEach((c, idx) => {
-    c.classList.toggle('active-hub', idx === 0);
-  });
-
+  document.getElementById('active-hub-label').textContent = 'All Strongholds';
+  document.querySelectorAll('.hub-card').forEach((c, i) => c.classList.toggle('active-hub', i === 0));
   renderEmployees();
 }
 
 function initViewToggle() {
   const btnGrid = document.getElementById('btn-grid-view');
   const btnTable = document.getElementById('btn-table-view');
-  const gridContainer = document.getElementById('employees-grid-container');
-  const tableContainer = document.getElementById('employees-table-container');
-
   btnGrid.addEventListener('click', () => {
     state.viewMode = 'grid';
     btnGrid.classList.add('active');
     btnTable.classList.remove('active');
-    gridContainer.style.display = 'grid';
-    tableContainer.style.display = 'none';
+    document.getElementById('employees-grid-container').style.display = 'grid';
+    document.getElementById('employees-table-container').style.display = 'none';
   });
-
   btnTable.addEventListener('click', () => {
     state.viewMode = 'table';
     btnTable.classList.add('active');
     btnGrid.classList.remove('active');
-    gridContainer.style.display = 'none';
-    tableContainer.style.display = 'block';
+    document.getElementById('employees-grid-container').style.display = 'none';
+    document.getElementById('employees-table-container').style.display = 'block';
   });
 }
 
 function initPagination() {
   document.getElementById('btn-prev').addEventListener('click', () => {
-    if (state.currentPage > 1) {
-      state.currentPage--;
-      renderEmployees();
-    }
+    if (state.currentPage > 1) { state.currentPage--; renderEmployees(); }
   });
-
   document.getElementById('btn-next').addEventListener('click', () => {
     const totalPages = Math.ceil(getFilteredEmployees().length / state.pageSize);
-    if (state.currentPage < totalPages) {
-      state.currentPage++;
-      renderEmployees();
-    }
+    if (state.currentPage < totalPages) { state.currentPage++; renderEmployees(); }
   });
 }
 
 function initModals() {
   const empModal = document.getElementById('employee-modal');
   const detailsModal = document.getElementById('details-modal');
-
-  document.getElementById('btn-open-add-modal').addEventListener('click', () => {
-    openEmployeeModal();
-  });
-
-  document.getElementById('btn-close-modal').addEventListener('click', () => {
-    empModal.classList.remove('active');
-  });
-
-  document.getElementById('btn-cancel-modal').addEventListener('click', () => {
-    empModal.classList.remove('active');
-  });
-
-  document.getElementById('btn-close-details').addEventListener('click', () => {
-    detailsModal.classList.remove('active');
-  });
-
-  document.getElementById('employee-form').addEventListener('submit', (e) => {
-    e.preventDefault();
-    saveEmployee();
-  });
-
+  document.getElementById('btn-open-add-modal').addEventListener('click', () => openEmployeeModal());
+  document.getElementById('btn-close-modal').addEventListener('click', () => empModal.classList.remove('active'));
+  document.getElementById('btn-cancel-modal').addEventListener('click', () => empModal.classList.remove('active'));
+  document.getElementById('btn-close-details').addEventListener('click', () => detailsModal.classList.remove('active'));
+  document.getElementById('employee-form').addEventListener('submit', (e) => { e.preventDefault(); saveEmployee(); });
   window.addEventListener('click', (e) => {
     if (e.target === empModal) empModal.classList.remove('active');
     if (e.target === detailsModal) detailsModal.classList.remove('active');
   });
 }
 
+function initExport() {
+  document.getElementById('btn-export-csv').addEventListener('click', exportToCSV);
+}
+
+function initHamburger() {
+  const hamburger = document.getElementById('hamburger');
+  const navLinks = document.getElementById('nav-links');
+  hamburger.addEventListener('click', () => {
+    hamburger.classList.toggle('active');
+    navLinks.classList.toggle('mobile-open');
+  });
+  document.getElementById('theme-toggle').addEventListener('click', toggleTheme);
+}
+
 // ==========================================
-// 5. CORE FILTERING & SORTING PIPELINE
+// 9. FILTERING & SORTING PIPELINE
 // ==========================================
 function getFilteredEmployees() {
   return state.employees.filter(emp => {
-    const matchQuery = !state.searchQuery || 
-      emp.name.toLowerCase().includes(state.searchQuery) ||
-      emp.email.toLowerCase().includes(state.searchQuery) ||
-      emp.role.toLowerCase().includes(state.searchQuery) ||
-      emp.department.toLowerCase().includes(state.searchQuery);
-
-    const matchLocation = state.filterLocation === 'ALL' || emp.location === state.filterLocation;
+    const q = state.searchQuery;
+    const matchQuery = !q ||
+      emp.name.toLowerCase().includes(q) ||
+      emp.email.toLowerCase().includes(q) ||
+      emp.role.toLowerCase().includes(q) ||
+      emp.department.toLowerCase().includes(q);
+    const matchLoc = state.filterLocation === 'ALL' || emp.location === state.filterLocation;
     const matchDept = state.filterDept === 'ALL' || emp.department === state.filterDept;
     const matchSalary = emp.salary <= state.filterMaxSalary;
-
-    return matchQuery && matchLocation && matchDept && matchSalary;
+    return matchQuery && matchLoc && matchDept && matchSalary;
   }).sort((a, b) => {
-    let valA = a[state.sortBy];
-    let valB = b[state.sortBy];
-
-    if (typeof valA === 'string') {
-      return valA.localeCompare(valB);
-    } else {
-      if (state.sortBy === 'salary' || state.sortBy === 'rating') {
-        return valB - valA;
-      }
-      return valA - valB;
-    }
+    if (state.sortBy === 'name') return a.name.localeCompare(b.name);
+    if (state.sortBy === 'salary' || state.sortBy === 'rating') return b[state.sortBy] - a[state.sortBy];
+    if (state.sortBy === 'joinDate') return new Date(a.joinDate) - new Date(b.joinDate);
+    return 0;
   });
 }
 
 // ==========================================
-// 6. RENDER ENGINE: EMPLOYEES (Frosted Glass with Tasteful Executive Accents)
+// 10. CROWN RATING GENERATOR
+// ==========================================
+function getCrowns(rating) {
+  const full = Math.floor(rating);
+  const half = rating % 1 >= 0.3;
+  let html = '';
+  for (let i = 0; i < full; i++) html += '<i class="fa-solid fa-crown crown-icon"></i>';
+  if (half) html += '<i class="fa-solid fa-crown crown-icon" style="opacity:0.45;"></i>';
+  return html;
+}
+
+// Stronghold name mapping
+function getStrongholdName(location) {
+  const map = {
+    'Bengaluru HQ': 'Bengaluru Citadel',
+    'Hyderabad Tech Park': 'Hyderabad Fortress',
+    'Gurugram Cyber City': 'Gurugram Keep',
+    'Pune Innovation Center': 'Pune Bastion',
+    'Mumbai FinTech Hub': 'Mumbai Harbor'
+  };
+  return map[location] || location;
+}
+
+// ==========================================
+// 11. RENDER ENGINE: EMPLOYEES
 // ==========================================
 function renderAll() {
   renderEmployees();
@@ -294,136 +382,118 @@ function renderAll() {
 function renderEmployees() {
   const filtered = getFilteredEmployees();
   const total = filtered.length;
-  
-  updateMetricsBar(filtered);
+  updateMetrics(filtered);
 
   const totalPages = Math.max(1, Math.ceil(total / state.pageSize));
   if (state.currentPage > totalPages) state.currentPage = totalPages;
-  const startIdx = (state.currentPage - 1) * state.pageSize;
-  const endIdx = Math.min(startIdx + state.pageSize, total);
-  const sliced = filtered.slice(startIdx, endIdx);
+  const start = (state.currentPage - 1) * state.pageSize;
+  const end = Math.min(start + state.pageSize, total);
+  const page = filtered.slice(start, end);
 
-  const gridContainer = document.getElementById('employees-grid-container');
-  const tableBody = document.getElementById('employees-table-body');
-  const emptyState = document.getElementById('empty-state-container');
-  const paginationContainer = document.querySelector('.pagination-container');
+  const gridEl = document.getElementById('employees-grid-container');
+  const tableEl = document.getElementById('employees-table-body');
+  const emptyEl = document.getElementById('empty-state-container');
+  const pagEl = document.querySelector('.pagination-container');
 
   if (total === 0) {
-    gridContainer.style.display = 'none';
+    gridEl.style.display = 'none';
     document.getElementById('employees-table-container').style.display = 'none';
-    emptyState.style.display = 'flex';
-    paginationContainer.style.display = 'none';
+    emptyEl.style.display = 'flex';
+    pagEl.style.display = 'none';
     return;
-  } else {
-    emptyState.style.display = 'none';
-    paginationContainer.style.display = 'flex';
-    if (state.viewMode === 'grid') {
-      gridContainer.style.display = 'grid';
-      document.getElementById('employees-table-container').style.display = 'none';
-    } else {
-      gridContainer.style.display = 'none';
-      document.getElementById('employees-table-container').style.display = 'block';
-    }
   }
 
-  // Render Grid Cards with Tasteful Color Accents & Vibrant Frosted Glass
-  gridContainer.innerHTML = sliced.map(emp => {
-    const isAI = emp.department.includes('Artificial');
-    const isExec = emp.department.includes('Executive');
-    const accentColor = isAI ? 'var(--accent-cyan)' : isExec ? 'var(--accent-rose)' : 'var(--accent-violet)';
+  emptyEl.style.display = 'none';
+  pagEl.style.display = 'flex';
+  if (state.viewMode === 'grid') {
+    gridEl.style.display = 'grid';
+    document.getElementById('employees-table-container').style.display = 'none';
+  } else {
+    gridEl.style.display = 'none';
+    document.getElementById('employees-table-container').style.display = 'block';
+  }
 
+  // Grid Cards
+  gridEl.innerHTML = page.map(emp => {
+    const deptShort = emp.department.split('&')[0].trim();
     return `
-    <div class="emp-card glass-card">
+    <div class="emp-card parchment-card">
       <div class="emp-card-header">
         <div style="position:relative;">
-          <img src="${emp.avatar}" alt="${emp.name}" class="emp-avatar" style="border-color:${accentColor}; box-shadow:0 0 14px ${accentColor};" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80'">
-          <div style="position:absolute; bottom:2px; right:2px; width:12px; height:12px; border-radius:50%; background:var(--accent-emerald); border:2px solid #131728; box-shadow:0 0 8px var(--accent-emerald);" title="Active status"></div>
+          <img src="${emp.avatar}" alt="${emp.name}" class="emp-avatar" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80'">
+          <div class="status-active" style="position:absolute; bottom:2px; right:2px; border:2px solid var(--bg-card);" title="On Duty"></div>
         </div>
-        <span class="location-badge"><i class="fa-solid fa-location-dot" style="font-size:0.72rem; color:${accentColor};"></i> ${emp.location.split(' ')[0]}</span>
+        <span class="location-badge"><i class="fa-solid fa-chess-rook" style="font-size:0.68rem;"></i> ${getStrongholdName(emp.location).split(' ')[0]}</span>
       </div>
-
       <div class="emp-info">
         <h3>${emp.name}</h3>
         <p class="emp-role">${emp.role}</p>
-        <p style="font-size: 0.78rem; color: ${accentColor}; font-weight: 600; margin-top:4px;"><i class="fa-solid fa-sitemap" style="margin-right:6px; opacity:0.8;"></i>${emp.department}</p>
-        <p class="emp-email"><i class="fa-regular fa-envelope"></i> ${emp.email}</p>
+        <p class="emp-dept"><i class="fa-solid fa-scroll" style="margin-right:6px; opacity:0.7;"></i>${deptShort}</p>
+        <p class="emp-email"><i class="fa-regular fa-envelope"></i>${emp.email}</p>
       </div>
-
-      <!-- Tasteful Executive Progress Bar -->
-      <div style="margin: 2px 0;">
-        <div style="display:flex; justify-content:space-between; font-size:0.72rem; font-weight:600; color:var(--text-secondary); margin-bottom:4px;">
-          <span>RATING BENCHMARK</span>
-          <span style="color:var(--accent-amber); font-weight:700;"><i class="fa-solid fa-star" style="margin-right:3px;"></i> ${emp.rating.toFixed(1)} / 5.0</span>
+      <div class="rating-bar">
+        <div class="rating-header">
+          <span>Honor Rating</span>
+          <span class="rating-value">${getCrowns(emp.rating)} ${emp.rating.toFixed(1)}</span>
         </div>
-        <div style="width:100%; height:5px; background:rgba(255,255,255,0.08); border-radius:var(--radius-pill); overflow:hidden;">
-          <div style="width: ${(emp.rating / 5) * 100}%; height:100%; background:linear-gradient(90deg, #2997ff, #00f2fe); border-radius:var(--radius-pill); box-shadow:0 0 10px rgba(0,242,254,0.4);"></div>
+        <div class="rating-track">
+          <div class="rating-fill" style="width: ${(emp.rating / 5) * 100}%;"></div>
         </div>
       </div>
-
       <div class="emp-salary-box">
         <div>
-          <span style="font-size:0.68rem; color:var(--text-secondary); display:block; text-transform:uppercase; font-weight:600; letter-spacing:0.02em;">Annual Salary</span>
-          <span class="salary-lakhs">${formatINRLakhs(emp.salary)}</span>
+          <span class="salary-label">Annual Bounty</span>
+          <span class="salary-value">${formatINRLakhs(emp.salary)}</span>
         </div>
         <div style="text-align:right;">
-          <span style="font-size:0.68rem; color:var(--text-secondary); display:block; text-transform:uppercase; font-weight:600; letter-spacing:0.02em;">Tenure</span>
-          <span style="font-weight:600; color:#fff; font-size:0.88rem;"><i class="fa-regular fa-calendar" style="color:var(--accent-cyan); margin-right:4px;"></i>${emp.joinDate.split('-')[0]}</span>
+          <span class="salary-label">Sworn Since</span>
+          <span class="tenure-value">${emp.joinDate.split('-')[0]}</span>
         </div>
       </div>
-
       <div class="emp-actions">
         <button class="btn-secondary" onclick="viewEmployeeDetails(${emp.id})" style="flex:2;">
-          <i class="fa-solid fa-id-badge" style="color:var(--accent-cyan);"></i><span>Full Dossier</span>
+          <i class="fa-solid fa-scroll" style="color:var(--gold);"></i><span>View Scroll</span>
         </button>
-        <button class="btn-icon" onclick="openEmployeeModal(${emp.id})" title="Edit Profile" style="border-radius: var(--radius-sm); width: 38px;">
-          <i class="fa-solid fa-pen-to-square"></i>
-        </button>
-        <button class="btn-icon" onclick="deleteEmployee(${emp.id})" title="Delete Record" style="border-radius: var(--radius-sm); width: 38px; color: #ff453a;">
-          <i class="fa-solid fa-trash-can"></i>
-        </button>
+        <button class="btn-icon" onclick="openEmployeeModal(${emp.id})" title="Edit"><i class="fa-solid fa-pen-to-square"></i></button>
+        <button class="btn-icon" onclick="deleteEmployee(${emp.id})" title="Remove" style="color:var(--burgundy);"><i class="fa-solid fa-trash-can"></i></button>
       </div>
-    </div>
-  `}).join('');
+    </div>`;
+  }).join('');
 
-  // Render Table Rows
-  tableBody.innerHTML = sliced.map(emp => `
+  // Table Rows
+  tableEl.innerHTML = page.map(emp => `
     <tr>
       <td>
         <div style="display:flex; align-items:center; gap:12px;">
           <div style="position:relative;">
-            <img src="${emp.avatar}" alt="${emp.name}" style="width:42px; height:42px; border-radius:50%; object-fit:cover; border:1px solid rgba(0,242,254,0.4);" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80'">
-            <div style="position:absolute; bottom:0; right:0; width:10px; height:10px; border-radius:50%; background:var(--accent-emerald); border:2px solid #131728;"></div>
+            <img src="${emp.avatar}" alt="${emp.name}" style="width:40px; height:40px; border-radius:50%; object-fit:cover; border:2px solid var(--gold);" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80'">
+            <div class="status-active" style="position:absolute; bottom:0; right:0; width:8px; height:8px; border:2px solid var(--bg-card);"></div>
           </div>
           <div>
-            <div style="font-weight:700; color:#fff; font-size:0.98rem;">${emp.name}</div>
-            <div style="font-size:0.78rem; color:var(--text-secondary);">${emp.email}</div>
+            <div style="font-weight:700; font-family:var(--font-heading); font-size:0.92rem;">${emp.name}</div>
+            <div style="font-size:0.78rem; color:var(--text-tertiary);">${emp.email}</div>
           </div>
         </div>
       </td>
-      <td><span class="location-badge" style="font-size:0.76rem;"><i class="fa-solid fa-location-dot" style="color:var(--accent-cyan);"></i> ${emp.location}</span></td>
-      <td style="color:var(--accent-cyan); font-weight:600;">${emp.department.split('&')[0].trim()}</td>
-      <td style="color:#fff; font-weight:500;">${emp.role}</td>
-      <td style="font-weight:700; color:var(--accent-emerald); font-size:1.02rem;">${formatINRLakhs(emp.salary)}</td>
-      <td>
-        <span style="display:inline-flex; align-items:center; gap:6px; font-weight:700; color:var(--accent-amber); background:rgba(251,191,36,0.12); padding:4px 10px; border-radius:var(--radius-pill); border:1px solid rgba(251,191,36,0.3);">
-          <i class="fa-solid fa-star"></i> ${emp.rating.toFixed(1)}
-        </span>
-      </td>
+      <td><span class="location-badge"><i class="fa-solid fa-chess-rook" style="font-size:0.65rem;"></i> ${emp.location.split(' ')[0]}</span></td>
+      <td style="font-family:var(--font-heading); font-size:0.82rem; font-weight:600; color:var(--gold-dark);">${emp.department.split('&')[0].trim()}</td>
+      <td style="font-size:0.88rem;">${emp.role}</td>
+      <td><span class="salary-value">${formatINRLakhs(emp.salary)}</span></td>
+      <td><span style="font-family:var(--font-heading); font-weight:700; color:var(--gold);">${getCrowns(emp.rating)} ${emp.rating.toFixed(1)}</span></td>
       <td style="text-align:right;">
-        <div style="display:inline-flex; gap:6px;">
-          <button class="btn-icon" onclick="viewEmployeeDetails(${emp.id})" title="Profile" style="width:34px; height:34px;"><i class="fa-solid fa-id-badge" style="font-size:0.8rem; color:var(--accent-cyan);"></i></button>
-          <button class="btn-icon" onclick="openEmployeeModal(${emp.id})" title="Edit" style="width:34px; height:34px;"><i class="fa-solid fa-pen" style="font-size:0.8rem;"></i></button>
-          <button class="btn-icon" onclick="deleteEmployee(${emp.id})" title="Delete" style="width:34px; height:34px; color:#ff453a;"><i class="fa-solid fa-trash" style="font-size:0.8rem;"></i></button>
+        <div style="display:inline-flex; gap:4px;">
+          <button class="btn-icon" onclick="viewEmployeeDetails(${emp.id})" title="View"><i class="fa-solid fa-scroll" style="color:var(--gold);"></i></button>
+          <button class="btn-icon" onclick="openEmployeeModal(${emp.id})" title="Edit"><i class="fa-solid fa-pen"></i></button>
+          <button class="btn-icon" onclick="deleteEmployee(${emp.id})" title="Remove" style="color:var(--burgundy);"><i class="fa-solid fa-trash"></i></button>
         </div>
       </td>
     </tr>
   `).join('');
 
-  // Update Pagination Controls
-  document.getElementById('page-start').textContent = total === 0 ? 0 : startIdx + 1;
-  document.getElementById('page-end').textContent = endIdx;
+  // Pagination
+  document.getElementById('page-start').textContent = total === 0 ? 0 : start + 1;
+  document.getElementById('page-end').textContent = end;
   document.getElementById('total-emps').textContent = total;
-
   document.getElementById('btn-prev').disabled = state.currentPage === 1;
   document.getElementById('btn-next').disabled = state.currentPage === totalPages;
 
@@ -433,142 +503,125 @@ function renderEmployees() {
     const btn = document.createElement('button');
     btn.className = `page-btn ${i === state.currentPage ? 'active' : ''}`;
     btn.textContent = i;
-    btn.addEventListener('click', () => {
-      state.currentPage = i;
-      renderEmployees();
-    });
+    btn.addEventListener('click', () => { state.currentPage = i; renderEmployees(); });
     pageNumbers.appendChild(btn);
   }
 }
 
-function updateMetricsBar(list) {
-  const totalStaff = list.length;
-  const totalPayroll = list.reduce((sum, e) => sum + e.salary, 0);
-  const avgSalary = totalStaff > 0 ? totalPayroll / totalStaff : 0;
-  const avgRating = totalStaff > 0 ? (list.reduce((sum, e) => sum + e.rating, 0) / totalStaff).toFixed(2) : '0.00';
-
-  document.getElementById('cmd-total-staff').textContent = `${totalStaff} Active`;
-  document.getElementById('cmd-total-payroll').textContent = formatINRCrores(totalPayroll);
-  document.getElementById('cmd-avg-salary').textContent = formatINRLakhs(avgSalary);
-  document.getElementById('cmd-avg-rating').textContent = `${avgRating} / 5.0`;
+function updateMetrics(list) {
+  const n = list.length;
+  const total = list.reduce((s, e) => s + e.salary, 0);
+  const avg = n > 0 ? total / n : 0;
+  const avgR = n > 0 ? (list.reduce((s, e) => s + e.rating, 0) / n).toFixed(2) : '0.00';
+  document.getElementById('cmd-total-staff').textContent = `${n} Sworn`;
+  document.getElementById('cmd-total-payroll').textContent = formatINRCrores(total);
+  document.getElementById('cmd-avg-salary').textContent = formatINRLakhs(avg);
+  document.getElementById('cmd-avg-rating').textContent = `${avgR} / 5.0`;
 }
 
 // ==========================================
-// 7. RENDER ENGINE: DEPARTMENTS & TECH HUBS
+// 12. RENDER: GUILD HALLS (Departments)
 // ==========================================
 function renderDepartments() {
   const depts = [
-    { name: 'Infrastructure & Core Eng', icon: 'fa-server', color: '#38bdf8', hub: 'Bengaluru HQ / Hyderabad', desc: 'Core cloud infrastructure, Kubernetes mesh, database engines, and zero-trust networking.' },
-    { name: 'Artificial Intelligence R&D', icon: 'fa-brain', color: '#00f2fe', hub: 'Bengaluru HQ / Gurugram', desc: 'Autonomous agent networks, LLM training, quantum algorithms, and computer vision.' },
-    { name: 'Product Experience & UX', icon: 'fa-wand-magic-sparkles', color: '#a78bfa', hub: 'Pune / Bengaluru HQ', desc: 'Minimalist UI systems, smooth WebGL motion engineering, and accessibility.' },
-    { name: 'Global Brand Marketing', icon: 'fa-bullhorn', color: '#fbbf24', hub: 'Mumbai FinTech / Gurugram', desc: 'Brand positioning, developer relations, public keynotes, and enterprise partnerships.' },
-    { name: 'Executive Leadership', icon: 'fa-user-tie', color: '#f43f5e', hub: 'Mumbai FinTech / Gurugram', desc: 'Corporate governance, INR capital allocation, India legal compliance, and HR strategy.' }
+    { name: 'Infrastructure & Core Eng', icon: 'fa-server', color: 'var(--royal-blue)', hub: 'Bengaluru / Hyderabad', desc: 'Masters of the realm\'s cloud fortifications, database engines, and zero-trust network defenses.' },
+    { name: 'Artificial Intelligence R&D', icon: 'fa-brain', color: 'var(--gold)', hub: 'Bengaluru / Gurugram', desc: 'Alchemists of autonomous intelligence — LLM training, quantum algorithms, and computer vision.' },
+    { name: 'Product Experience & UX', icon: 'fa-wand-magic-sparkles', color: 'var(--burgundy)', hub: 'Pune / Bengaluru', desc: 'Artisans of the interface — crafting enchanting motion, accessibility, and illuminated manuscripts.' },
+    { name: 'Global Brand Marketing', icon: 'fa-bullhorn', color: 'var(--forest)', hub: 'Mumbai / Gurugram', desc: 'Heralds and emissaries — brand positioning, developer relations, and community building.' },
+    { name: 'Executive Leadership', icon: 'fa-crown', color: 'var(--gold-dark)', hub: 'Mumbai / Gurugram', desc: 'The High Council — INR treasury governance, legal compliance, and strategic workforce architecture.' }
   ];
 
-  const grid = document.getElementById('departments-grid-container');
-  grid.innerHTML = depts.map(d => {
-    const deptEmps = state.employees.filter(e => e.department === d.name);
-    const count = deptEmps.length;
-    const totalPayroll = deptEmps.reduce((sum, e) => sum + e.salary, 0);
-    const avgComp = count > 0 ? totalPayroll / count : 0;
-
+  document.getElementById('departments-grid-container').innerHTML = depts.map(d => {
+    const emps = state.employees.filter(e => e.department === d.name);
+    const count = emps.length;
+    const totalPay = emps.reduce((s, e) => s + e.salary, 0);
+    const avgPay = count > 0 ? totalPay / count : 0;
     return `
-      <div class="dept-card glass-card">
+      <div class="dept-card parchment-card">
         <div style="display:flex; justify-content:space-between; align-items:flex-start;">
-          <div style="width:48px; height:48px; border-radius:14px; background:rgba(255,255,255,0.06); display:flex; align-items:center; justify-content:center; font-size:1.4rem; color:${d.color}; border:1px solid rgba(255,255,255,0.15); box-shadow:0 0 15px ${d.color};">
+          <div class="dept-icon-box" style="background:rgba(201,169,78,0.08); color:${d.color}; border-color:var(--border-subtle);">
             <i class="fa-solid ${d.icon}"></i>
           </div>
-          <span class="location-badge" style="font-size:0.78rem;">${count} Staff Members</span>
+          <span class="hub-badge">${count} Members</span>
         </div>
-
         <div class="dept-title">
           <h3>${d.name}</h3>
-          <p style="font-size:0.82rem; color:${d.color}; font-weight:600; margin-top:4px;"><i class="fa-solid fa-map-pin" style="margin-right:6px;"></i> Primary Hubs: ${d.hub}</p>
-          <p style="font-size:0.9rem; color:var(--text-secondary); margin-top:10px; line-height:1.5;">${d.desc}</p>
+          <p class="dept-hub"><i class="fa-solid fa-chess-rook" style="margin-right:6px;"></i> Strongholds: ${d.hub}</p>
+          <p class="dept-desc">${d.desc}</p>
         </div>
-
-        <div style="display:grid; grid-template-columns: 1fr 1fr; gap:12px; padding:14px; background:rgba(0,0,0,0.45); border-radius:var(--radius-sm); border:1px solid rgba(255,255,255,0.08);">
+        <div class="dept-stats">
           <div>
-            <span style="font-size:0.68rem; color:var(--text-secondary); display:block; text-transform:uppercase; font-weight:600;">Annual Spend</span>
-            <div style="font-weight:700; color:var(--accent-emerald); font-size:1.1rem; margin-top:2px;">${formatINRCrores(totalPayroll)}</div>
+            <span class="salary-label">Annual Treasury</span>
+            <div class="salary-value" style="margin-top:2px; font-size:1.05rem;">${formatINRCrores(totalPay)}</div>
           </div>
           <div>
-            <span style="font-size:0.68rem; color:var(--text-secondary); display:block; text-transform:uppercase; font-weight:600;">Average Salary</span>
-            <div style="font-weight:700; color:#fff; font-size:1.1rem; margin-top:2px;">${formatINRLakhs(avgComp)}</div>
+            <span class="salary-label">Average Bounty</span>
+            <div style="font-weight:700; color:var(--text-primary); font-family:var(--font-heading); font-size:1.05rem; margin-top:2px;">${formatINRLakhs(avgPay)}</div>
           </div>
         </div>
-      </div>
-    `;
+      </div>`;
   }).join('');
 }
 
 // ==========================================
-// 8. RENDER ENGINE: ANALYTICS & PAYROLL
+// 13. RENDER: ROYAL LEDGER (Analytics)
 // ==========================================
 function renderReports() {
-  const totalStaff = state.employees.length;
-  const totalPayroll = state.employees.reduce((sum, e) => sum + e.salary, 0);
-  const avgSalary = totalStaff > 0 ? totalPayroll / totalStaff : 0;
+  const n = state.employees.length;
+  const total = state.employees.reduce((s, e) => s + e.salary, 0);
+  const avg = n > 0 ? total / n : 0;
+  document.getElementById('kpi-payroll').textContent = formatINRCrores(total);
+  document.getElementById('kpi-headcount').textContent = `${n} Sworn`;
+  document.getElementById('kpi-avg-salary').textContent = formatINRLakhs(avg);
 
-  document.getElementById('kpi-payroll').textContent = formatINRCrores(totalPayroll);
-  document.getElementById('kpi-headcount').textContent = `${totalStaff} Staff`;
-  document.getElementById('kpi-avg-salary').textContent = formatINRLakhs(avgSalary);
+  // Bar Chart
+  const deptNames = ['Infrastructure & Core Eng', 'Artificial Intelligence R&D', 'Product Experience & UX', 'Global Brand Marketing', 'Executive Leadership'];
+  const deptData = deptNames.map(d => ({
+    name: d.split('&')[0].trim(),
+    spend: state.employees.filter(e => e.department === d).reduce((s, e) => s + e.salary, 0)
+  }));
+  const maxSpend = Math.max(...deptData.map(d => d.spend), 1000000);
 
-  const depts = ['Infrastructure & Core Eng', 'Artificial Intelligence R&D', 'Product Experience & UX', 'Global Brand Marketing', 'Executive Leadership'];
-  const deptSpends = depts.map(d => {
-    return {
-      name: d.split('&')[0].trim(),
-      spend: state.employees.filter(e => e.department === d).reduce((s, e) => s + e.salary, 0)
-    };
-  });
-
-  const maxSpend = Math.max(...deptSpends.map(d => d.spend), 1000000);
-  const barChart = document.getElementById('department-bar-chart');
-  barChart.innerHTML = deptSpends.map(d => {
+  document.getElementById('department-bar-chart').innerHTML = deptData.map(d => {
     const pct = Math.max(14, Math.round((d.spend / maxSpend) * 100));
     return `
       <div class="bar-col">
         <div class="bar-fill" style="height: ${pct}%;">
           <span class="bar-val">${formatINRLakhs(d.spend).replace(' LPA', 'L')}</span>
         </div>
-        <span style="font-size:0.75rem; color:var(--text-secondary); text-align:center; font-weight:600;">${d.name}</span>
-      </div>
-    `;
+        <span class="bar-label">${d.name}</span>
+      </div>`;
   }).join('');
 
-  // Render Tech Hub Office Location Density List
+  // Stronghold Density
   const hubs = ['Bengaluru HQ', 'Hyderabad Tech Park', 'Gurugram Cyber City', 'Pune Innovation Center', 'Mumbai FinTech Hub'];
-  const shareList = document.getElementById('headcount-share-list');
-  shareList.innerHTML = hubs.map(h => {
+  document.getElementById('headcount-share-list').innerHTML = hubs.map(h => {
     const count = state.employees.filter(e => e.location === h).length;
-    const sharePct = totalStaff > 0 ? ((count / totalStaff) * 100).toFixed(1) : 0;
+    const pct = n > 0 ? ((count / n) * 100).toFixed(1) : 0;
     return `
-      <div style="display:flex; flex-direction:column; gap:6px;">
-        <div style="display:flex; justify-content:space-between; font-size:0.9rem; font-weight:600;">
-          <span style="color:#fff;"><i class="fa-solid fa-location-dot" style="color:var(--accent-cyan); margin-right:8px;"></i> ${h}</span>
-          <span style="color:var(--accent-emerald); font-weight:700;">${count} staff (${sharePct}%)</span>
+      <div class="share-item">
+        <div class="share-header">
+          <span class="location"><i class="fa-solid fa-chess-rook" style="color:var(--gold); margin-right:8px;"></i> ${getStrongholdName(h)}</span>
+          <span class="count">${count} members (${pct}%)</span>
         </div>
-        <div style="width:100%; height:6px; background:rgba(255,255,255,0.08); border-radius:var(--radius-pill); overflow:hidden;">
-          <div style="width:${sharePct}%; height:100%; background:linear-gradient(90deg, #00f2fe, #2997ff); border-radius:var(--radius-pill); box-shadow:0 0 10px rgba(0,242,254,0.4);"></div>
+        <div class="share-track">
+          <div class="share-fill" style="width:${pct}%;"></div>
         </div>
-      </div>
-    `;
+      </div>`;
   }).join('');
 }
 
 // ==========================================
-// 9. MODAL CRUD INTERACTIONS & DOSSIER
+// 14. MODAL CRUD OPERATIONS
 // ==========================================
 function openEmployeeModal(empId = null) {
   const modal = document.getElementById('employee-modal');
   const title = document.getElementById('modal-title');
-  const form = document.getElementById('employee-form');
-
   if (empId) {
     const emp = state.employees.find(e => e.id === empId);
     if (!emp) return;
     state.editingEmpId = empId;
-    title.innerHTML = `<i class="fa-solid fa-pen-to-square" style="color:var(--accent-cyan); margin-right:10px;"></i> Edit Employee Profile`;
+    title.innerHTML = '<i class="fa-solid fa-pen-to-square"></i> Edit Guild Member';
     document.getElementById('emp-id').value = emp.id;
     document.getElementById('emp-name').value = emp.name;
     document.getElementById('emp-email').value = emp.email;
@@ -579,11 +632,10 @@ function openEmployeeModal(empId = null) {
     document.getElementById('emp-rating').value = emp.rating;
   } else {
     state.editingEmpId = null;
-    title.innerHTML = `<i class="fa-solid fa-user-plus" style="color:var(--accent-cyan); margin-right:10px;"></i> Add New Employee`;
-    form.reset();
+    title.innerHTML = '<i class="fa-solid fa-scroll"></i> Enlist New Member';
+    document.getElementById('employee-form').reset();
     document.getElementById('emp-id').value = '';
   }
-
   modal.classList.add('active');
 }
 
@@ -596,41 +648,40 @@ function saveEmployee() {
   const salary = Number(document.getElementById('emp-salary').value);
   const rating = Number(document.getElementById('emp-rating').value);
 
+  if (!name || !email || !role || !salary) {
+    showToast('All fields marked with * are required to complete the enrollment.', 'error');
+    return;
+  }
+
   if (state.editingEmpId) {
-    const index = state.employees.findIndex(e => e.id === state.editingEmpId);
-    if (index !== -1) {
-      state.employees[index] = {
-        ...state.employees[index],
-        name, email, location, department, role, salary, rating
-      };
+    const idx = state.employees.findIndex(e => e.id === state.editingEmpId);
+    if (idx !== -1) {
+      state.employees[idx] = { ...state.employees[idx], name, email, location, department, role, salary, rating };
+      showToast(`${name}'s scroll has been updated in the Guild Registry.`, 'success');
     }
   } else {
-    const newId = Date.now();
-    const newEmp = {
-      id: newId,
-      name,
-      email,
-      location,
-      department,
-      role,
-      salary,
-      rating,
+    state.employees.unshift({
+      id: Date.now(),
+      name, email, location, department, role, salary, rating,
       joinDate: new Date().toISOString().split('T')[0],
-      avatar: `https://images.unsplash.com/photo-${1530000000000 + Math.floor(Math.random()*500000000)}?w=150&auto=format&fit=crop&q=80`,
-      skills: ['India Tech Hub', 'Enterprise Agile', 'Cloud Execution', 'Leadership']
-    };
-    state.employees.unshift(newEmp);
+      avatar: `https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80`,
+      skills: ['Guild Member', 'Enterprise Agile', 'Cloud Craft']
+    });
+    showToast(`${name} has been sworn into the Guild! Welcome, brave soul.`, 'success');
   }
 
   document.getElementById('employee-modal').classList.remove('active');
+  saveToStorage();
   renderAll();
 }
 
 function deleteEmployee(empId) {
   const emp = state.employees.find(e => e.id === empId);
   if (!emp) return;
-  if (confirm(`Are you sure you want to delete "${emp.name}" (${emp.location}) from the active workforce database?`)) {
+  if (confirm(`Art thou certain? ${emp.name} shall be removed from the Guild Registry. This action cannot be undone.`)) {
     state.employees = state.employees.filter(e => e.id !== empId);
+    saveToStorage();
+    showToast(`${emp.name} has been removed from the Guild Registry.`, 'error');
     renderAll();
   }
 }
@@ -639,58 +690,56 @@ function viewEmployeeDetails(empId) {
   const emp = state.employees.find(e => e.id === empId);
   if (!emp) return;
 
-  const content = document.getElementById('details-content');
-  content.innerHTML = `
+  document.getElementById('details-content').innerHTML = `
     <div style="display:flex; flex-direction:column; align-items:center; text-align:center; gap:12px; margin-bottom:24px;">
       <div style="position:relative;">
-        <img src="${emp.avatar}" alt="${emp.name}" style="width:88px; height:88px; border-radius:50%; border:2px solid var(--accent-cyan); object-fit:cover; box-shadow:0 0 20px rgba(0,242,254,0.4);" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80'">
-        <div style="position:absolute; bottom:4px; right:4px; width:16px; height:16px; border-radius:50%; background:var(--accent-emerald); border:3px solid #131728; box-shadow:0 0 10px var(--accent-emerald);"></div>
+        <img src="${emp.avatar}" alt="${emp.name}" style="width:88px; height:88px; border-radius:50%; border:3px solid var(--gold); object-fit:cover; box-shadow:var(--shadow-glow);" onerror="this.src='https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80'">
+        <div class="status-active" style="position:absolute; bottom:4px; right:4px; width:14px; height:14px; border:3px solid var(--bg-card);"></div>
       </div>
       <div>
-        <h3 style="font-size:1.55rem; color:#fff; font-weight:800;">${emp.name}</h3>
-        <p style="color:var(--accent-cyan); font-weight:600; font-size:0.98rem; margin-top:2px;">${emp.role}</p>
-        <div style="display:flex; gap:8px; justify-content:center; margin-top:10px;">
-          <span class="location-badge"><i class="fa-solid fa-location-dot" style="color:var(--accent-cyan);"></i> ${emp.location}</span>
+        <h3 style="font-size:1.5rem;">${emp.name}</h3>
+        <p style="color:var(--gold-dark); font-family:var(--font-heading); font-weight:600; font-size:0.95rem; margin-top:2px;">${emp.role}</p>
+        <div style="display:flex; gap:8px; justify-content:center; margin-top:10px; flex-wrap:wrap;">
+          <span class="location-badge"><i class="fa-solid fa-chess-rook"></i> ${getStrongholdName(emp.location)}</span>
           <span class="location-badge">${emp.department.split('&')[0].trim()}</span>
         </div>
       </div>
     </div>
 
-    <div style="background:rgba(0,0,0,0.5); padding:20px; border-radius:var(--radius-sm); border:1px solid var(--glass-border); display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;">
+    <div style="background:var(--bg-card-alt); padding:20px; border-radius:var(--radius-sm); border:1px solid var(--border-subtle); display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:24px;">
       <div>
-        <span style="font-size:0.68rem; color:var(--text-secondary); display:block; text-transform:uppercase; font-weight:600;">Annual Salary</span>
-        <div style="font-size:1.25rem; font-weight:800; color:var(--accent-emerald); margin-top:2px;">${formatINRLakhs(emp.salary)}</div>
-        <div style="font-size:0.75rem; color:var(--text-secondary);">${formatINRFull(emp.salary)} / yr</div>
+        <span class="salary-label">Annual Bounty</span>
+        <div class="salary-value" style="font-size:1.2rem; margin-top:2px;">${formatINRLakhs(emp.salary)}</div>
+        <div style="font-size:0.75rem; color:var(--text-tertiary);">${formatINRFull(emp.salary)} / yr</div>
       </div>
       <div>
-        <span style="font-size:0.68rem; color:var(--text-secondary); display:block; text-transform:uppercase; font-weight:600;">Performance Benchmark</span>
-        <div style="font-size:1.25rem; font-weight:800; color:var(--accent-amber); margin-top:2px;"><i class="fa-solid fa-star"></i> ${emp.rating.toFixed(1)} / 5.0</div>
-        <div style="font-size:0.75rem; color:var(--accent-cyan);">Top Tier Talent</div>
+        <span class="salary-label">Honor Rating</span>
+        <div style="font-size:1.1rem; font-weight:800; color:var(--gold); margin-top:2px; font-family:var(--font-heading);">${getCrowns(emp.rating)} ${emp.rating.toFixed(1)}</div>
       </div>
       <div>
-        <span style="font-size:0.68rem; color:var(--text-secondary); display:block; text-transform:uppercase; font-weight:600;">Corporate Email</span>
-        <div style="font-size:0.85rem; color:#fff; font-weight:500; margin-top:2px;">${emp.email}</div>
+        <span class="salary-label">Guild Email</span>
+        <div style="font-size:0.85rem; color:var(--text-primary); font-weight:500; margin-top:2px;">${emp.email}</div>
       </div>
       <div>
-        <span style="font-size:0.68rem; color:var(--text-secondary); display:block; text-transform:uppercase; font-weight:600;">Joining Tenure</span>
-        <div style="font-size:0.85rem; color:#fff; font-weight:500; margin-top:2px;">${emp.joinDate}</div>
+        <span class="salary-label">Sworn Since</span>
+        <div style="font-size:0.85rem; color:var(--text-primary); font-weight:500; margin-top:2px;">${emp.joinDate}</div>
       </div>
     </div>
 
     <div>
-      <span style="font-size:0.78rem; font-weight:700; color:var(--text-secondary); margin-bottom:10px; display:block; text-transform:uppercase; letter-spacing:0.04em;">Verified Domain Competencies</span>
+      <span class="salary-label" style="margin-bottom:10px; display:block;">Domain Competencies</span>
       <div style="display:flex; flex-wrap:wrap; gap:6px;">
-        ${(emp.skills || ['Core Eng', 'Agile Tech', 'Cloud']).map(s => `
-          <span style="background:rgba(255,255,255,0.06); border:1px solid rgba(0,242,254,0.3); padding:5px 12px; border-radius:var(--radius-pill); font-size:0.8rem; color:#fff; font-weight:500; box-shadow:0 0 10px rgba(0,242,254,0.1);">
-            <i class="fa-solid fa-check" style="color:var(--accent-cyan); margin-right:4px;"></i>${s}
+        ${(emp.skills || ['Guild Craft', 'Enterprise', 'Cloud']).map(s => `
+          <span style="background:rgba(201,169,78,0.08); border:1px solid var(--border-gold); padding:5px 12px; border-radius:var(--radius-pill); font-size:0.8rem; color:var(--text-primary); font-weight:500;">
+            <i class="fa-solid fa-shield-halved" style="color:var(--gold); margin-right:4px;"></i>${s}
           </span>
         `).join('')}
       </div>
     </div>
 
-    <div style="margin-top:24px; padding-top:16px; border-top:1px solid var(--glass-border); display:flex; justify-content:flex-end; gap:10px;">
+    <div style="margin-top:24px; padding-top:16px; border-top:1px solid var(--border-subtle); display:flex; justify-content:flex-end; gap:10px;">
       <button class="btn-secondary" onclick="document.getElementById('details-modal').classList.remove('active'); openEmployeeModal(${emp.id});">
-        <i class="fa-solid fa-pen-to-square"></i><span>Edit Profile</span>
+        <i class="fa-solid fa-pen-to-square"></i><span>Edit Scroll</span>
       </button>
     </div>
   `;

@@ -1,73 +1,104 @@
-# 🇮🇳 Workforce Pro — Enterprise Workforce & India Tech Hub Intelligence
+# 🏰 Workforce Pro — The Guild Registry
 
-> *"When minimalist clarity meets Indian enterprise tech hub intelligence."*
+> *"When medieval manuscript artistry meets modern enterprise intelligence."*
 
-Welcome to **Workforce Pro** — a clean, breathable, and ultra-responsive enterprise workforce management platform tailored specifically for India's premier tech ecosystems. 
-
-Too often, enterprise human resource tools suffer from cluttered tables, overwhelming sci-fi jargon, and foreign currency defaults. We simplified the experience into an **effortless, Apple-inspired interface** built with native Indian currency formatting (**₹ INR in Lakhs & Crores**) and an interactive **Regional Tech Hub location map**!
+Welcome to **Workforce Pro** — a premium, medieval-themed enterprise workforce management platform tailored for India's tech strongholds. Built with parchment textures, gold filigree accents, and crowned honor ratings — yet powered by modern responsive design and real Indian currency formatting (**₹ INR in Lakhs & Crores**).
 
 ---
 
-## 🌟 What Makes This Version Special?
+## ⚔️ Features
 
-### 1. Indian Currency Native Formatting (`₹` INR / Lakhs / Crores)
-* **Real Tech Salaries**: Realistic compensation numbers for Indian tech centers (e.g., ₹18 LPA to ₹48 LPA for leadership and senior engineering roles).
-* **Smart Number Formatter**: The reactive engine automatically converts large numbers into clean Indian financial notations:
-  * Individual compensation displays cleanly in **Lakhs Per Annum** (e.g., `₹26.4 LPA` or `₹26,40,000 / yr`).
-  * Macro annual payroll totals scale seamlessly into **Crores** (e.g., `₹6.42 Cr INR`).
+### 🏛️ Medieval Guild Aesthetic
+- **Parchment scroll cards** with gold filigree borders and ornate typography (Cinzel, Crimson Text, MedievalSharp)
+- **Crown-based honor ratings** (👑👑👑👑👑) instead of generic stars
+- **Stronghold naming** for tech hubs (Bengaluru Citadel, Hyderabad Fortress, etc.)
+- **Guild Hall nomenclature** for departments
 
-### 2. 📍 Interactive India Tech Hubs & Campus Map
-Right above your employee matrix sits an interactive visual campus filter representing India's primary tech hubs:
-* 🏢 **Bengaluru HQ** (Silicon Valley of India — AI & Core Engineering focus)
-* 🌐 **Hyderabad Tech Park** (Cloud Infrastructure & Distributed Security)
-* 🚀 **Gurugram Cyber City** (Brand Growth & Strategic Executive Leadership)
-* ⚡ **Pune Innovation Center** (Product Design & WebGL Motion UX)
-* 🏙️ **Mumbai FinTech Hub** (Finance, Governance & Human Capital)
+### 🌙 Day/Night Theme Toggle
+- **Day Mode**: Warm parchment, dark ink text, gold accents
+- **Night Mode**: Dark oak/mahogany backgrounds, amber glow
+- Torch icon toggle — preference saved to LocalStorage
 
-**Interactive Telemetry**: Simply click on any campus card (like *Bengaluru HQ* or *Hyderabad Tech Park*) to instantly filter the entire workforce matrix by that office location in real time!
+### 💾 Data Persistence (LocalStorage)
+- Employee data survives page refreshes
+- Filter and theme preferences are remembered
+- "Reset to Original Roster" capability
 
-### 3. Effortless Apple-Minimalist Enterprise Design
-* **Breathable & Uncluttered**: Stripped away heavy, complicated jargon ("Dossier", "Vector", "Matrix") and replaced it with intuitive, executive wording: **Employees**, **Departments & Tech Hubs**, **Analytics & Payroll**.
-* **High-Contrast Sapphire Glassmorphism**: Clean `backdrop-filter: blur(24px)` glass cards with subtle 1px specular white borders that make scanning 25+ employee profiles effortless.
+### 📤 Export to CSV
+- One-click "Transcribe to Parchment" export button
+- Downloads `guild_registry.csv` with all employee data
+- Properly formatted with INR columns
+
+### 🔔 Toast Notifications
+- Medieval-styled scroll pop-ups for all CRUD actions
+- Auto-dismiss with smooth animations
+- Success (green seal), Error (red seal), Info (gold seal) types
+
+### 💰 Indian Currency (₹ INR)
+- **Lakhs**: `₹25.6 LPA` for individual salaries
+- **Crores**: `₹6.42 Cr` for aggregate payroll totals
+- Full INR formatting: `₹25,60,000`
+
+### 📱 Fully Responsive
+- **Desktop**: 3-column grid with full navigation
+- **Tablet**: 2-column grid with optimized spacing
+- **Mobile**: Single-column with hamburger menu and touch-friendly controls
+- **Print**: Clean print stylesheet for physical records
 
 ---
 
-## 🛠️ How to Launch & Run in 3 Seconds
+## 🛠️ How to Launch
 
-Since Workforce Pro is built in pure HTML5, Vanilla CSS3, and ES6 JavaScript, there are no build pipelines or npm dependencies required!
+Since Workforce Pro is built in pure HTML5, Vanilla CSS3, and ES6 JavaScript — no build tools or npm required!
 
-### Launch via Command Prompt (`cmd`):
+### Command Prompt (`cmd`):
 ```cmd
 d:
 cd "d:\Employee Management System"
 start index.html
 ```
 
-### Launch via Windows PowerShell:
+### Windows PowerShell:
 ```powershell
 Set-Location "d:\Employee Management System"
 Start-Process index.html
 ```
 
-*(Or simply double-click **`index.html`** in your Windows File Explorer!)*
+*(Or simply double-click **`index.html`** in Windows File Explorer!)*
+
+---
+
+## 🏗️ Project Structure
+
+```
+Employee Management System/
+├── index.html     # Medieval guild registry layout
+├── styles.css     # Parchment design system (day/night themes)
+├── app.js         # State engine, CRUD, LocalStorage, export
+└── README.md      # This documentation
+```
 
 ---
 
 ## 💡 Customization
 
-Want to add a new employee or office location? Open **`app.js`** and add a JSON record to `initialEmployees`:
+Want to add a new guild member? Open **`app.js`** and add a record to `defaultMembers`:
 
 ```javascript
 {
   id: 126,
   name: 'Neelam Verma',
   email: 'neelam.verma@workforcepro.in',
-  location: 'Bengaluru HQ', // Or Hyderabad, Gurugram, Pune, Mumbai
+  location: 'Bengaluru HQ',
   department: 'Artificial Intelligence R&D',
   role: 'Principal Machine Learning Engineer',
-  salary: 3200000, // Converts automatically to ₹32.0 LPA in UI!
+  salary: 3200000,
   rating: 4.9
 }
 ```
 
-*Crafted with precision, Apple minimalist clarity, and Indian enterprise tech excellence.* 🇮🇳 ✨
+Or simply use the **"Enlist New Member"** button in the UI — data is saved to LocalStorage automatically!
+
+---
+
+*Crafted with medieval precision, Indian enterprise excellence, and parchment-grade attention to detail.* 🏰⚜️🇮🇳
