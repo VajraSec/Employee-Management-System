@@ -151,7 +151,7 @@ function exportToCSV() {
   link.click();
   URL.revokeObjectURL(url);
 
-  showToast('The Guild Registry has been transcribed to parchment (CSV downloaded).', 'success');
+  showToast('Export successful! Your roster (.csv) is downloading now.', 'success');
 }
 
 // ==========================================
@@ -170,7 +170,7 @@ function applyTheme(theme) {
 function toggleTheme() {
   const newTheme = state.theme === 'day' ? 'night' : 'day';
   applyTheme(newTheme);
-  showToast(newTheme === 'night' ? 'The torches dim — Night mode activated.' : 'Dawn breaks — Day mode restored.', 'info');
+  showToast(newTheme === 'night' ? '🌙 Night mode activated. Torches dimmed!' : '☀️ Day mode restored. Bright and sunny!', 'info');
 }
 
 // ==========================================
@@ -657,7 +657,7 @@ function saveEmployee() {
     const idx = state.employees.findIndex(e => e.id === state.editingEmpId);
     if (idx !== -1) {
       state.employees[idx] = { ...state.employees[idx], name, email, location, department, role, salary, rating };
-      showToast(`${name}'s scroll has been updated in the Guild Registry.`, 'success');
+      showToast(`${name}'s profile has been updated successfully!`, 'success');
     }
   } else {
     state.employees.unshift({
@@ -667,7 +667,7 @@ function saveEmployee() {
       avatar: `https://images.unsplash.com/photo-1535713875002-d1d0cf377fde?w=150&auto=format&fit=crop&q=80`,
       skills: ['Guild Member', 'Enterprise Agile', 'Cloud Craft']
     });
-    showToast(`${name} has been sworn into the Guild! Welcome, brave soul.`, 'success');
+    showToast(`${name} has joined the team! Welcome aboard 🚀`, 'success');
   }
 
   document.getElementById('employee-modal').classList.remove('active');
@@ -678,10 +678,10 @@ function saveEmployee() {
 function deleteEmployee(empId) {
   const emp = state.employees.find(e => e.id === empId);
   if (!emp) return;
-  if (confirm(`Art thou certain? ${emp.name} shall be removed from the Guild Registry. This action cannot be undone.`)) {
+  if (confirm(`Are you sure you want to remove ${emp.name} from the roster? This cannot be undone.`)) {
     state.employees = state.employees.filter(e => e.id !== empId);
     saveToStorage();
-    showToast(`${emp.name} has been removed from the Guild Registry.`, 'error');
+    showToast(`${emp.name} has been removed from the team.`, 'error');
     renderAll();
   }
 }
