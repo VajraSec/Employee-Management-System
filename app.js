@@ -1,6 +1,6 @@
 /**
  * ============================================================================
- * WORKFORCE PRO — THE GUILD REGISTRY
+ * WORKFORCE PRO -- THE GUILD REGISTRY
  * Medieval-Themed Enterprise Management Suite
  * Features: LocalStorage, Toast Notifications, CSV Export, Day/Night Toggle
  * ============================================================================
@@ -525,10 +525,10 @@ function updateMetrics(list) {
 function renderDepartments() {
   const depts = [
     { name: 'Infrastructure & Core Eng', icon: 'fa-server', color: 'var(--royal-blue)', hub: 'Bengaluru / Hyderabad', desc: 'Masters of the realm\'s cloud fortifications, database engines, and zero-trust network defenses.' },
-    { name: 'Artificial Intelligence R&D', icon: 'fa-brain', color: 'var(--gold)', hub: 'Bengaluru / Gurugram', desc: 'Alchemists of autonomous intelligence — LLM training, quantum algorithms, and computer vision.' },
-    { name: 'Product Experience & UX', icon: 'fa-wand-magic-sparkles', color: 'var(--burgundy)', hub: 'Pune / Bengaluru', desc: 'Artisans of the interface — crafting enchanting motion, accessibility, and illuminated manuscripts.' },
-    { name: 'Global Brand Marketing', icon: 'fa-bullhorn', color: 'var(--forest)', hub: 'Mumbai / Gurugram', desc: 'Heralds and emissaries — brand positioning, developer relations, and community building.' },
-    { name: 'Executive Leadership', icon: 'fa-crown', color: 'var(--gold-dark)', hub: 'Mumbai / Gurugram', desc: 'The High Council — INR treasury governance, legal compliance, and strategic workforce architecture.' }
+    { name: 'Artificial Intelligence R&D', icon: 'fa-brain', color: 'var(--gold)', hub: 'Bengaluru / Gurugram', desc: 'Alchemists of autonomous intelligence -- LLM training, quantum algorithms, and computer vision.' },
+    { name: 'Product Experience & UX', icon: 'fa-wand-magic-sparkles', color: 'var(--burgundy)', hub: 'Pune / Bengaluru', desc: 'Artisans of the interface -- crafting enchanting motion, accessibility, and illuminated manuscripts.' },
+    { name: 'Global Brand Marketing', icon: 'fa-bullhorn', color: 'var(--forest)', hub: 'Mumbai / Gurugram', desc: 'Heralds and emissaries -- brand positioning, developer relations, and community building.' },
+    { name: 'Executive Leadership', icon: 'fa-crown', color: 'var(--gold-dark)', hub: 'Mumbai / Gurugram', desc: 'The High Council -- INR treasury governance, legal compliance, and strategic workforce architecture.' }
   ];
 
   document.getElementById('departments-grid-container').innerHTML = depts.map(d => {
@@ -582,12 +582,15 @@ function renderReports() {
   }));
   const maxSpend = Math.max(...deptData.map(d => d.spend), 1000000);
 
-  document.getElementById('department-bar-chart').innerHTML = deptData.map(d => {
-    const pct = Math.max(14, Math.round((d.spend / maxSpend) * 100));
+  document.getElementById('department-bar-chart').innerHTML = deptData.map((d, idx) => {
+    const pct = Math.max(15, Math.round((d.spend / maxSpend) * 100));
+    const formattedVal = formatINRLakhs(d.spend).replace(' LPA', 'L');
     return `
-      <div class="bar-col">
-        <div class="bar-fill" style="height: ${pct}%;">
-          <span class="bar-val">${formatINRLakhs(d.spend).replace(' LPA', 'L')}</span>
+      <div class="bar-col" title="${d.name}: ${formattedVal}">
+        <div class="bar-track">
+          <div class="bar-fill bar-fill-${idx}" style="height: ${pct}%;">
+            <span class="bar-val-badge">${formattedVal}</span>
+          </div>
         </div>
         <span class="bar-label">${d.name}</span>
       </div>`;

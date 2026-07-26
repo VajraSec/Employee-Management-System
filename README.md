@@ -1,6 +1,6 @@
-# 🏰 Workforce Pro — Modern HR Management with a Legendary Vibe
+# 🏰 Workforce Pro -- Modern HR Management with a Legendary Vibe
 
-Welcome to **Workforce Pro**! We wanted to build an employee management system that doesn't feel like another boring corporate spreadsheet. So, we combined a **clean, modern enterprise dashboard** with a **legendary medieval guild aesthetic** — complete with warm parchment textures, golden crown ratings, and real Indian currency formatting (**₹ INR in Lakhs & Crores**).
+Welcome to **Workforce Pro**! We wanted to build an employee management system that doesn't feel like another boring corporate spreadsheet. So, we combined a **clean, modern enterprise dashboard** with a **legendary medieval guild aesthetic** -- complete with warm parchment textures, golden crown ratings, and real Indian currency formatting (**₹ INR in Lakhs & Crores**).
 
 Whether you're managing engineering teams in Bengaluru or leadership squads in Mumbai, Workforce Pro makes tracking your team feel seamless, fast, and actually enjoyable.
 
@@ -18,7 +18,7 @@ Why choose one theme when you can have both?
 * Hit the **torch toggle button** in the top navigation bar to switch between a warm daylight parchment view and a sleek, dark mahogany night mode. Your choice is automatically saved in your browser!
 
 ### 💾 Smart LocalStorage Saving
-No backend required! Whenever you enlist a new team member, update a profile, or delete an old record, your data is instantly saved to your browser's local storage. Refresh the page as much as you want — your data stays right where you left it.
+No backend required! Whenever you enlist a new team member, update a profile, or delete an old record, your data is instantly saved to your browser's local storage. Refresh the page as much as you want -- your data stays right where you left it.
 
 ### 📤 One-Click CSV Export
 Need to send the payroll data to accounting or open it in Excel? Just hit the **Export CSV** button in the top corner. It instantly downloads a clean, perfectly formatted `.csv` file with your entire roster and INR compensation metrics.

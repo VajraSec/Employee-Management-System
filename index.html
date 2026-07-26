@@ -1,13 +1,16 @@
 <!DOCTYPE html>
 <html lang="en" data-theme="day">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <meta name="description" content="Workforce Pro — Premium medieval-themed enterprise employee management suite with Indian currency support.">
+  <meta name="description"
+    content="Workforce Pro -- Premium medieval-themed enterprise employee management suite with Indian currency support.">
   <title>Workforce Pro | The Guild Registry</title>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
   <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
 
   <!-- Toast Notification Container -->
@@ -68,7 +71,8 @@
 
       <div class="section-header">
         <div class="header-title">
-          <h1>The Guild Registry <span class="region-badge"><i class="fa-solid fa-scroll" style="margin-right:4px;"></i> India Tech Hubs</span></h1>
+          <h1>The Guild Registry <span class="region-badge"><i class="fa-solid fa-scroll" style="margin-right:4px;"></i>
+              India Tech Hubs</span></h1>
           <p>Your ultimate command center for managing talent, teams, and payroll across India's top tech hubs.</p>
         </div>
         <div class="header-actions">
@@ -77,7 +81,8 @@
             <i class="fa-solid fa-magnifying-glass search-icon"></i>
           </div>
           <div class="view-toggle">
-            <button id="btn-grid-view" class="view-btn active" title="Grid View"><i class="fa-solid fa-border-all"></i></button>
+            <button id="btn-grid-view" class="view-btn active" title="Grid View"><i
+                class="fa-solid fa-border-all"></i></button>
             <button id="btn-table-view" class="view-btn" title="Table View"><i class="fa-solid fa-list-ul"></i></button>
           </div>
           <button id="btn-export-csv" class="btn-export" title="Transcribe to Parchment (CSV)">
@@ -98,38 +103,47 @@
             <div class="metric-label-small">Total Guild Members</div>
             <div id="cmd-total-staff" class="metric-val-large val-gold">25 Sworn</div>
           </div>
-          <div class="metric-icon-box" style="background:rgba(201,169,78,0.1); color:var(--gold);"><i class="fa-solid fa-users"></i></div>
+          <div class="metric-icon-box" style="background:rgba(201,169,78,0.1); color:var(--gold);"><i
+              class="fa-solid fa-users"></i></div>
         </div>
         <div class="metric-pill parchment-card" style="border-top-color: var(--forest);">
           <div>
             <div class="metric-label-small">Annual Treasury Outflow</div>
             <div id="cmd-total-payroll" class="metric-val-large val-forest">₹6.42 Cr</div>
           </div>
-          <div class="metric-icon-box" style="background:rgba(45,80,22,0.1); color:var(--forest);"><i class="fa-solid fa-vault"></i></div>
+          <div class="metric-icon-box" style="background:rgba(45,80,22,0.1); color:var(--forest);"><i
+              class="fa-solid fa-vault"></i></div>
         </div>
         <div class="metric-pill parchment-card" style="border-top-color: var(--burgundy);">
           <div>
             <div class="metric-label-small">Average Bounty</div>
             <div id="cmd-avg-salary" class="metric-val-large val-burgundy">₹25.68 LPA</div>
           </div>
-          <div class="metric-icon-box" style="background:rgba(114,47,55,0.1); color:var(--burgundy);"><i class="fa-solid fa-coins"></i></div>
+          <div class="metric-icon-box" style="background:rgba(114,47,55,0.1); color:var(--burgundy);"><i
+              class="fa-solid fa-coins"></i></div>
         </div>
         <div class="metric-pill parchment-card" style="border-top-color: var(--gold);">
           <div>
             <div class="metric-label-small">Average Honor Rating</div>
             <div id="cmd-avg-rating" class="metric-val-large val-gold">4.72 / 5.0</div>
           </div>
-          <div class="metric-icon-box" style="background:rgba(201,169,78,0.1); color:var(--gold);"><i class="fa-solid fa-crown"></i></div>
+          <div class="metric-icon-box" style="background:rgba(201,169,78,0.1); color:var(--gold);"><i
+              class="fa-solid fa-crown"></i></div>
         </div>
       </div>
 
       <!-- Strongholds (India Tech Hubs) -->
       <div style="margin-bottom: 26px;">
-        <div style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
-          <span style="font-family:var(--font-heading); font-size:0.78rem; font-weight:700; text-transform:uppercase; color:var(--text-tertiary); letter-spacing:0.05em;">
-            <i class="fa-solid fa-chess-rook" style="margin-right:8px; color:var(--gold);"></i> Strongholds of the Realm (Click to filter)
+        <div
+          style="display:flex; justify-content:space-between; align-items:center; margin-bottom:14px; flex-wrap:wrap; gap:8px;">
+          <span
+            style="font-family:var(--font-heading); font-size:0.78rem; font-weight:700; text-transform:uppercase; color:var(--text-tertiary); letter-spacing:0.05em;">
+            <i class="fa-solid fa-chess-rook" style="margin-right:8px; color:var(--gold);"></i> Strongholds of the Realm
+            (Click to filter)
           </span>
-          <span id="active-hub-label" style="font-family:var(--font-heading); font-size:0.76rem; color:var(--gold-dark); font-weight:600; background:rgba(201,169,78,0.1); padding:4px 12px; border-radius:var(--radius-pill); border:1px solid var(--border-gold);">All Strongholds</span>
+          <span id="active-hub-label"
+            style="font-family:var(--font-heading); font-size:0.76rem; color:var(--gold-dark); font-weight:600; background:rgba(201,169,78,0.1); padding:4px 12px; border-radius:var(--radius-pill); border:1px solid var(--border-gold);">All
+            Strongholds</span>
         </div>
         <div class="hubs-grid">
           <div class="hub-card parchment-card active-hub" data-location="ALL">
@@ -139,44 +153,75 @@
             </div>
             <p style="font-size:0.82rem; color:var(--text-secondary); font-style:italic;">Pan-India Guild Network</p>
           </div>
-          <div class="hub-card parchment-card" data-location="Bengaluru HQ" style="border-top-color: var(--royal-blue);">
+          <div class="hub-card parchment-card" data-location="Bengaluru HQ"
+            style="border-top-color: var(--royal-blue);">
             <div class="hub-header">
-              <div class="hub-title"><i class="fa-solid fa-chess-rook" style="color:var(--royal-blue);"></i> Bengaluru Citadel</div>
+              <div class="hub-title"><i class="fa-solid fa-chess-rook" style="color:var(--royal-blue);"></i> Bengaluru
+                Citadel</div>
               <span class="hub-badge">8 Members</span>
             </div>
             <div class="hub-stats">
-              <div><div class="label">Guilds</div><div class="value">AI & Core Eng</div></div>
-              <div><div class="label">Avg Bounty</div><div class="value text-forest">₹31.5 LPA</div></div>
+              <div>
+                <div class="label">Guilds</div>
+                <div class="value">AI & Core Eng</div>
+              </div>
+              <div>
+                <div class="label">Avg Bounty</div>
+                <div class="value text-forest">₹31.5 LPA</div>
+              </div>
             </div>
           </div>
-          <div class="hub-card parchment-card" data-location="Hyderabad Tech Park" style="border-top-color: var(--burgundy);">
+          <div class="hub-card parchment-card" data-location="Hyderabad Tech Park"
+            style="border-top-color: var(--burgundy);">
             <div class="hub-header">
-              <div class="hub-title"><i class="fa-solid fa-fort-awesome" style="color:var(--burgundy);"></i> Hyderabad Fortress</div>
+              <div class="hub-title"><i class="fa-solid fa-fort-awesome" style="color:var(--burgundy);"></i> Hyderabad
+                Fortress</div>
               <span class="hub-badge">5 Members</span>
             </div>
             <div class="hub-stats">
-              <div><div class="label">Guilds</div><div class="value">Cloud & Security</div></div>
-              <div><div class="label">Avg Bounty</div><div class="value text-forest">₹26.4 LPA</div></div>
+              <div>
+                <div class="label">Guilds</div>
+                <div class="value">Cloud & Security</div>
+              </div>
+              <div>
+                <div class="label">Avg Bounty</div>
+                <div class="value text-forest">₹26.4 LPA</div>
+              </div>
             </div>
           </div>
-          <div class="hub-card parchment-card" data-location="Gurugram Cyber City" style="border-top-color: var(--forest);">
+          <div class="hub-card parchment-card" data-location="Gurugram Cyber City"
+            style="border-top-color: var(--forest);">
             <div class="hub-header">
-              <div class="hub-title"><i class="fa-solid fa-landmark" style="color:var(--forest);"></i> Gurugram Keep</div>
+              <div class="hub-title"><i class="fa-solid fa-landmark" style="color:var(--forest);"></i> Gurugram Keep
+              </div>
               <span class="hub-badge">5 Members</span>
             </div>
             <div class="hub-stats">
-              <div><div class="label">Guilds</div><div class="value">Brand & Growth</div></div>
-              <div><div class="label">Avg Bounty</div><div class="value text-forest">₹24.8 LPA</div></div>
+              <div>
+                <div class="label">Guilds</div>
+                <div class="value">Brand & Growth</div>
+              </div>
+              <div>
+                <div class="label">Avg Bounty</div>
+                <div class="value text-forest">₹24.8 LPA</div>
+              </div>
             </div>
           </div>
-          <div class="hub-card parchment-card" data-location="Pune Innovation Center" style="border-top-color: var(--gold);">
+          <div class="hub-card parchment-card" data-location="Pune Innovation Center"
+            style="border-top-color: var(--gold);">
             <div class="hub-header">
               <div class="hub-title"><i class="fa-solid fa-dungeon" style="color:var(--gold);"></i> Pune Bastion</div>
               <span class="hub-badge">4 Members</span>
             </div>
             <div class="hub-stats">
-              <div><div class="label">Guilds</div><div class="value">UX & Product</div></div>
-              <div><div class="label">Avg Bounty</div><div class="value text-forest">₹21.2 LPA</div></div>
+              <div>
+                <div class="label">Guilds</div>
+                <div class="value">UX & Product</div>
+              </div>
+              <div>
+                <div class="label">Avg Bounty</div>
+                <div class="value text-forest">₹21.2 LPA</div>
+              </div>
             </div>
           </div>
         </div>
@@ -248,14 +293,16 @@
       <div id="empty-state-container" class="parchment-panel empty-state" style="display:none;">
         <i class="fa-solid fa-scroll"></i>
         <h3>No Team Members Found</h3>
-        <p>We couldn't find anyone matching your search filters. Try adjusting your search query or reset all filters!</p>
+        <p>We couldn't find anyone matching your search filters. Try adjusting your search query or reset all filters!
+        </p>
         <button id="btn-empty-reset" class="btn-primary" style="margin-top:8px;">Reset All Filters</button>
       </div>
 
       <!-- Pagination -->
       <div class="pagination-container parchment-panel">
         <div class="pagination-info">
-          Displaying <strong id="page-start">1</strong>–<strong id="page-end">9</strong> of <strong id="total-emps">25</strong> guild members
+          Displaying <strong id="page-start">1</strong>–<strong id="page-end">9</strong> of <strong
+            id="total-emps">25</strong> guild members
         </div>
         <div class="pagination-controls">
           <button id="btn-prev" class="page-btn"><i class="fa-solid fa-chevron-left"></i></button>
@@ -285,7 +332,8 @@
       <div class="section-header">
         <div class="header-title">
           <h1>The Royal Ledger</h1>
-          <p>Real-time financial analytics and workforce salary distribution formatted cleanly in Indian currency (INR).</p>
+          <p>Real-time financial analytics and workforce salary distribution formatted cleanly in Indian currency (INR).
+          </p>
         </div>
       </div>
 
@@ -295,33 +343,38 @@
             <div class="metric-label-small">Total Annual Treasury</div>
             <div id="kpi-payroll" class="metric-val-large val-gold">₹6.42 Cr</div>
           </div>
-          <div class="metric-icon-box" style="background:rgba(201,169,78,0.1); color:var(--gold);"><i class="fa-solid fa-indian-rupee-sign"></i></div>
+          <div class="metric-icon-box" style="background:rgba(201,169,78,0.1); color:var(--gold);"><i
+              class="fa-solid fa-indian-rupee-sign"></i></div>
         </div>
         <div class="metric-pill parchment-card" style="border-top-color: var(--burgundy);">
           <div>
             <div class="metric-label-small">Active Guild Members</div>
             <div id="kpi-headcount" class="metric-val-large val-burgundy">25 Sworn</div>
           </div>
-          <div class="metric-icon-box" style="background:rgba(114,47,55,0.1); color:var(--burgundy);"><i class="fa-solid fa-users"></i></div>
+          <div class="metric-icon-box" style="background:rgba(114,47,55,0.1); color:var(--burgundy);"><i
+              class="fa-solid fa-users"></i></div>
         </div>
         <div class="metric-pill parchment-card" style="border-top-color: var(--forest);">
           <div>
             <div class="metric-label-small">Average Bounty</div>
             <div id="kpi-avg-salary" class="metric-val-large val-forest">₹25.68 LPA</div>
           </div>
-          <div class="metric-icon-box" style="background:rgba(45,80,22,0.1); color:var(--forest);"><i class="fa-solid fa-scale-balanced"></i></div>
+          <div class="metric-icon-box" style="background:rgba(45,80,22,0.1); color:var(--forest);"><i
+              class="fa-solid fa-scale-balanced"></i></div>
         </div>
       </div>
 
       <div class="charts-grid">
         <div class="parchment-panel" style="padding:26px;">
           <h3 style="margin-bottom:4px;">Annual Treasury by Guild Hall (₹ Lakhs)</h3>
-          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:22px; font-style:italic;">Yearly gold allocation across the guild halls</p>
+          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:22px; font-style:italic;">Yearly gold
+            allocation across the guild halls</p>
           <div class="css-bar-chart" id="department-bar-chart"></div>
         </div>
         <div class="parchment-panel" style="padding:26px;">
           <h3 style="margin-bottom:4px;">Stronghold Garrison Density</h3>
-          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:22px; font-style:italic;">Member distribution across the realm</p>
+          <p style="font-size:0.85rem; color:var(--text-secondary); margin-bottom:22px; font-style:italic;">Member
+            distribution across the realm</p>
           <div id="headcount-share-list" style="display:flex; flex-direction:column; gap:16px;"></div>
         </div>
       </div>
@@ -347,7 +400,8 @@
           </div>
           <div class="form-group full-width">
             <label>Guild Email *</label>
-            <input type="email" id="emp-email" class="form-input" placeholder="e.g. rahul.sharma@workforcepro.in" required>
+            <input type="email" id="emp-email" class="form-input" placeholder="e.g. rahul.sharma@workforcepro.in"
+              required>
           </div>
           <div class="form-group">
             <label>Stronghold *</label>
@@ -375,16 +429,19 @@
           </div>
           <div class="form-group">
             <label>Annual Bounty (₹ INR) *</label>
-            <input type="number" id="emp-salary" class="form-input" placeholder="e.g. 2500000" min="300000" max="100000000" step="50000" required>
+            <input type="number" id="emp-salary" class="form-input" placeholder="e.g. 2500000" min="300000"
+              max="100000000" step="50000" required>
           </div>
           <div class="form-group full-width">
             <label>Honor Rating (1.0 – 5.0) *</label>
-            <input type="number" id="emp-rating" class="form-input" placeholder="e.g. 4.8" min="1.0" max="5.0" step="0.1" value="4.6" required>
+            <input type="number" id="emp-rating" class="form-input" placeholder="e.g. 4.8" min="1.0" max="5.0"
+              step="0.1" value="4.6" required>
           </div>
         </div>
         <div class="modal-footer">
           <button type="button" id="btn-cancel-modal" class="btn-secondary">Cancel</button>
-          <button type="submit" id="btn-save-employee" class="btn-primary"><i class="fa-solid fa-scroll"></i> Save to Ledger</button>
+          <button type="submit" id="btn-save-employee" class="btn-primary"><i class="fa-solid fa-scroll"></i> Save to
+            Ledger</button>
         </div>
       </form>
     </div>
@@ -405,4 +462,5 @@
 
   <script src="app.js"></script>
 </body>
+
 </html>
